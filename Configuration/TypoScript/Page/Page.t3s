@@ -1,0 +1,27 @@
+page = PAGE
+page {
+	includeCSS {
+		application = fileadmin/Resources/Public/Css/application.css
+	}
+
+	includeJSFooter {
+		application = fileadmin/Resources/Public/Js/application.js
+	}
+
+	10 = FLUIDTEMPLATE
+	10 {
+		templateName = Default
+
+		templateRootPaths {
+			10 = {$plugin.empires.view.templateRootPath}
+		}
+
+		layoutRootPaths {
+			10 = {$plugin.empires.view.layoutRootPath}
+		}
+
+		partialRootPaths {
+			10 = {$plugin.empires.view.partialRootPath}
+		}
+	}
+}

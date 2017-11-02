@@ -1,0 +1,13 @@
+# mod.wizards.newContentElement.wizardItems.common {
+#    elements {
+#       datamintsplay_pageheader {
+#          iconIdentifier = your-icon-identifier
+#          title = LLL:EXT:datamints_play/Resources/Private/Language/locallang_tca.xlf:pageheader.title
+#          description = LLL:EXT:datamints_play/Resources/Private/Language/locallang_tca.xlf:pageheader.description
+#          tt_content_defValues {
+#             CType = datamintsplay_pageheader
+#          }
+#       }
+#    }
+#    show := addToList(datamintsplay_pageheader)
+# }
