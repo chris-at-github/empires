@@ -51,12 +51,12 @@ config {
 	compressCss = 0
 
 	// Move default CSS and JS to external file
-	removeDefaultJS = external
-	inlineStyle2TempFile = 1
+	removeDefaultJS = 0
+	inlineStyle2TempFile = 0
 
 	// Protect mail addresses from spamming
-	spamProtectEmailAddresses = -3
-	spamProtectEmailAddresses_atSubst = @<span style="display:none;">remove-this.</span>
+	spamProtectEmailAddresses = ascii
+	spamProtectEmailAddresses_atSubst = @<span style="display:none;">&#65279;</span>
 
 	// display error messages for development
 	contentObjectExceptionHandler = 0
