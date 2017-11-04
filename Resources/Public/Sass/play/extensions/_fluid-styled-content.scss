@@ -1,0 +1,7 @@
+@include media-breakpoint-up(md) {
+	.ce-header--layout-1 {
+		& + p {
+			margin-top: 30px;
+		}
+	}
+}

@@ -6,9 +6,10 @@
 // HTML
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-	font-weight: 400;
+	margin-bottom: 0;
+	font-weight: $headings-font-weight;
 	font-size: 18px;
-	line-height: 1.15;
+	line-height: $headings-line-height;
 }
 
 h1, .h1 {
@@ -25,7 +26,7 @@ p, ul, ol, table {
 	margin: 20px 0 0 0;
 }
 
-a {
+b, strong, a {
 	font-weight: 600;
 }
 
@@ -51,5 +52,29 @@ ul {
 		& + li {
 			margin-top: 10px;
 		}
+	}
+}
+
+@include media-breakpoint-up(sm) {
+	h1, .h1 {
+		& {
+			font-size: 30px;
+		}
+
+		& + p {
+			margin-top: 30px;
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+	h1, .h1 {
+		font-size: 40px;
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	body {
+		font-size: $font-size-lg;
 	}
 }

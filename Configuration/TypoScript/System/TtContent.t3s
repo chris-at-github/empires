@@ -1,12 +1,12 @@
 lib.contentElement {
 	layoutRootPaths {
-  	100 = EXT:empires/Resources/Private/Extensions/FluidStyledContent/Layouts/
+  	100 = EXT:play/Resources/Private/Extensions/FluidStyledContent/Layouts/
   }
 	templateRootPaths {
-  	100 = EXT:empires/Resources/Private/Extensions/FluidStyledContent/Templates/
+  	100 = EXT:play/Resources/Private/Extensions/FluidStyledContent/Templates/
   }
 	partialRootPaths {
-  	100 = EXT:empires/Resources/Private/Extensions/FluidStyledContent/Partials/
+  	100 = EXT:play/Resources/Private/Extensions/FluidStyledContent/Partials/
   }
 }
 # lib.fluidContent {
