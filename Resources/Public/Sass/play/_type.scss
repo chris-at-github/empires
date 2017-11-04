@@ -1,0 +1,55 @@
+// ---------------------------------------------------------------------------
+// Webfont
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+
+// ---------------------------------------------------------------------------
+// HTML
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 1.15;
+}
+
+h1, .h1 {
+	margin-top: 40px;
+	font-size: 24px;
+}
+
+h2, .h2 {
+	margin-top: 30px;
+	font-size: 20px;
+}
+
+p, ul, ol, table {
+	margin: 20px 0 0 0;
+}
+
+a {
+	font-weight: 600;
+}
+
+ul {
+	& {
+		padding: 0;
+	}
+
+	li {
+		& {
+			position: relative;
+			list-style: none;
+			padding: 0 0 0 16px;
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 9px; left: 0;
+			border: 2px solid $body-color;
+		}
+
+		& + li {
+			margin-top: 10px;
+		}
+	}
+}

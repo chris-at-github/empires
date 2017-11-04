@@ -1,10 +1,10 @@
 <?php
 
 /***************************************************************
- * Extension Manager/Repository config file for ext: "empires"
+ * Extension Manager/Repository config file for ext: "play"
  ***************************************************************/
 $EM_CONF[$_EXTKEY] = [
-	'title' => 'Empires',
+	'title' => 'Play',
 	'description' => '',
 	'category' => 'plugin',
 	'author' => 'Christian Pschorr',
@@ -24,7 +24,7 @@ $EM_CONF[$_EXTKEY] = [
 	],
 	'autoload' => [
 		'psr-4' => [
-			'Empires\\Factory\\' => 'Classes',
+			'Typo3\\Play\\' => 'Classes',
 		],
 	],
 ];

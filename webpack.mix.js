@@ -19,5 +19,5 @@ var mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-mix.js('typo3conf/ext/empires/Resources/Public/Js/application.js', 'fileadmin/Resources/Public/Js')
- 	.sass('typo3conf/ext/empires/Resources/Public/Sass/application.scss', 'fileadmin/Resources/Public/Css');
+mix.js('typo3conf/ext/play/Resources/Public/Js/application.js', 'fileadmin/Resources/Public/Js')
+ 	.sass('typo3conf/ext/play/Resources/Public/Sass/application.scss', 'fileadmin/Resources/Public/Css');
