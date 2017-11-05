@@ -1,20 +1,37 @@
 .container-fluid {
 	width: 1200px;
 	max-width: 100%;
+}
+
+#body {
+	margin: 10px 0;
+}
+
+// ---------------------------------------------------------------------------
+// Content Elemente
+.ce-frame {
 	padding-left: 20px;
 	padding-right: 20px;
 }
 
-@include media-breakpoint-up(md) {
-	.container-fluid {
-		padding-left: 40px;
-		padding-right: 40px;
-	}
+// Abstaende
+.ce-frame--space-before-auto {
+	padding-top: 0.1px;
 }
 
-@include media-breakpoint-up(lg) {
-	.container-fluid {
-		padding-left: 60px;
-		padding-right: 60px;
-	}
+.ce-frame--space-after-auto {
+	padding-bottom: 0.1px;
+}
+
+.ce-frame--space-before-small {
+	padding-top: 20px;
+}
+
+.ce-frame--space-after-small {
+	padding-bottom: 20px;
+}
+
+// Farben
+.ce-frame--layout-0 {
+	background: #fff;
 }

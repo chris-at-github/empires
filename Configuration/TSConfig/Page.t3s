@@ -11,3 +11,15 @@
 #    }
 #    show := addToList(datamintsplay_pageheader)
 # }
+
+TCEFORM.tt_content {
+	space_before_class {
+		removeItems = extra-small, medium, large, extra-large
+		addItems.auto = Auto
+	}
+
+	space_after_class {
+		removeItems = extra-small, medium, large, extra-large
+		addItems.auto = Auto
+	}
+}
