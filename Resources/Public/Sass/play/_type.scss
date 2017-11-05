@@ -8,7 +8,7 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
 	margin-bottom: 0;
 	font-weight: $headings-font-weight;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: $headings-line-height;
 }
 
@@ -18,12 +18,16 @@ h1, .h1 {
 }
 
 h2, .h2 {
-	margin-top: 30px;
+	margin-top: 35px;
 	font-size: 20px;
 }
 
+h3, .h3 {
+	margin-top: 25px;
+}
+
 p, ul, ol, table {
-	margin: 20px 0 0 0;
+	margin: 10px 0 0 0;
 }
 
 b, strong, a {
@@ -65,16 +69,45 @@ ul {
 			margin-top: 30px;
 		}
 	}
+
+	h3, .h3 {
+		& {
+			font-size: 20px;
+		}
+
+		& + p {
+			margin-top: 10px;
+		}
+	}
+
+	p, ul, ol, table {
+		margin-top: 20px;
+	}
 }
 
 @include media-breakpoint-up(md) {
 	h1, .h1 {
 		font-size: 40px;
 	}
+
+	h2, .h2 {
+		margin-top: 40px;
+		font-size: 24px;
+	}
 }
 
 @include media-breakpoint-up(lg) {
 	body {
 		font-size: $font-size-lg;
+	}
+
+	h2, .h2 {
+		margin-top: 45px;
+		font-size: 30px;
+	}
+
+	h3, .h3 {
+		margin-top: 35px;
+		font-size: 22px;
 	}
 }
