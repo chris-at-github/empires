@@ -27,3 +27,17 @@
 		padding: 5px 10px;
 	}
 }
+
+@include media-breakpoint-up(lg) {
+	.navigation-horizontal {
+		ul {
+			margin-left: -20px;
+			margin-right: -20px;
+		}
+
+		a {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+}

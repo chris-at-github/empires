@@ -10,7 +10,7 @@ h1, h2, h3, h4, h5, h6,
 
 h1, .h1 {
 	margin-top: 40px;
-	font-size: 24px;
+	font-size: 28px;
 }
 
 h2, .h2 {
@@ -95,6 +95,10 @@ ul {
 @include media-breakpoint-up(lg) {
 	body {
 		font-size: $font-size-lg;
+	}
+
+	h1, .h1 {
+		font-size: 52px;
 	}
 
 	h2, .h2 {
