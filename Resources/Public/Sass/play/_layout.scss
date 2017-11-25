@@ -5,14 +5,18 @@
 }
 
 #content-header {
-	.ce-header--layout-1 {
+	.ce-frame--space-before-auto .ce-header--layout-1 {
 		& {
-			margin: 30px 0;
+			margin-top: 30px;
 		}
 
 		h1, .h1 {
-			margin: 0;
+			margin-top: 0;
 		}
+	}
+
+	.ce-frame--space-after-auto .ce-header--layout-1 {
+		margin-bottom: 30px;
 	}
 }
 
@@ -22,7 +26,7 @@
 	}
 
 	& > .ce-frame:first-child {
-		@extend .ce-frame--space-before-auto;
+		@extend .ce-frame--space-before-none;
 	}
 
 	& > .ce-frame:last-child {
@@ -34,23 +38,33 @@
 // Content Elemente
 
 // Abstaende
-.ce-frame--space-before-auto {
+.ce-frame--space-before-none,
+.ce-frame--space-before-small,
+.ce-frame--space-before-medium {
 	padding-top: 0.1px;
 }
 
-.ce-frame--space-after-auto {
+.ce-frame--space-after-none,
+.ce-frame--space-after-small,
+.ce-frame--space-after-medium {
 	padding-bottom: 0.1px;
 }
 
-.ce-frame--space-before-small {
-	padding-top: 20px;
+.ce-frame--space-before-small > .ce-frame--inner,
+.ce-frame--space-before-medium > .ce-frame--inner {
+	margin-top: 20px;
 }
 
-.ce-frame--space-after-small {
-	padding-bottom: 20px;
+.ce-frame--space-after-small > .ce-frame--inner,
+.ce-frame--space-after-medium > .ce-frame--inner {
+	margin-bottom: 20px;
 }
 
 // Farben
+.ce-frame--layout-0 {
+	background: #fff
+}
+
 .ce-frame--layout-1 {
 	background: $body-bg;
 }
@@ -62,9 +76,21 @@
 	}
 
 	#content-header {
-		.ce-header--layout-1 {
-			margin: 40px 0;
+		.ce-frame--space-before-auto .ce-header--layout-1 {
+			margin-top: 40px;
 		}
+
+		.ce-frame--space-after-auto .ce-header--layout-1 {
+			margin-bottom: 40px;
+		}
+	}
+
+	.ce-frame--space-before-medium > .ce-frame--inner {
+		margin-top: 40px;
+	}
+
+	.ce-frame--space-after-medium > .ce-frame--inner {
+		margin-bottom: 40px;
 	}
 }
 
@@ -75,8 +101,20 @@
 	}
 
 	#content-header {
-		.ce-header--layout-1 {
-			margin: 55px 0;
+		.ce-frame--space-before-auto .ce-header--layout-1 {
+			margin-top: 55px;
 		}
+
+		.ce-frame--space-after-auto .ce-header--layout-1 {
+			margin-bottom: 55px;
+		}
+	}
+
+	.ce-frame--space-before-medium > .ce-frame--inner {
+		margin-top: 60px;
+	}
+
+	.ce-frame--space-after-medium > .ce-frame--inner {
+		margin-bottom: 60px;
 	}
 }
