@@ -24,7 +24,7 @@ $EM_CONF[$_EXTKEY] = [
 	],
 	'autoload' => [
 		'psr-4' => [
-			'Typo3\\Play\\' => 'Classes',
+			'Chris\\Play\\' => 'Classes',
 		],
 	],
 ];
