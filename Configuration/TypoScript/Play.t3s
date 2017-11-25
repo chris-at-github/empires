@@ -7,7 +7,6 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/Block/Content.t3s">
 
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/Page/Page.t3s">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/Page/Webfont.t3s">
 
-# <INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/Plugin/Plugin.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/Extension/Plugin.t3s">
 # <INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/Plugin/Api.t3s">

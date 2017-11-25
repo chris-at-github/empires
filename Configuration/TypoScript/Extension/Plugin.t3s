@@ -1,28 +1,21 @@
-# plugin.tx_datamintsplay {
-# 	view {
-# 		layoutRootPaths.0 = {$plugin.tx_datamintsplay.view.layoutRootPath}
-# 		templateRootPaths.0 = {$plugin.tx_datamintsplay.view.templateRootPath}
-# 		partialRootPaths.0 = {$plugin.tx_datamintsplay.view.partialRootPath}
-# 	}
+plugin.tx_play {
+	view {
+		layoutRootPaths.0 = {$plugin.tx_play.view.layoutRootPath}
+		templateRootPaths.0 = {$plugin.tx_play.view.templateRootPath}
+		partialRootPaths.0 = {$plugin.tx_play.view.partialRootPath}
+	}
 
-# 	persistence {
-# 		storagePid = {$plugin.tx_datamintsplay.persistence.storagePid}
-# 		#recursive = 1
-# 	}
+	persistence {
+		storagePid = {$plugin.tx_play.persistence.storagePid}
+	}
 
-# 	features {
-# 		#skipDefaultArguments = 1
-# 		# if set to 1, the enable fields are ignored in BE context
-# 		ignoreAllEnableFieldsInBe =
+	mvc {
+		callDefaultActionIfActionCantBeResolved = 1
+	}
 
-# 		// Should be on by default, but can be disabled if all action in the plugin are uncached
-# 		// @todo: vorerst nur fuer die Entwicklung deaktiviert -> sollte im produktiven Einsatz auf 1 stehen
-# 		requireCHashArgumentForActionArguments = 0
-# 	}
-
-# 	mvc {
-# 		#callDefaultActionIfActionCantBeResolved = 1
-# 	}
-# }
-
-# plugin.tx_datamintsplay_frontend < plugin.tx_datamintsplay
+	settings {
+		svg {
+			path = {$plugin.tx_play.settings.svg.path}
+		}
+	}
+}

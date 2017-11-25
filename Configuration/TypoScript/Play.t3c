@@ -1,4 +1,4 @@
-plugin.play {
+plugin.tx_play {
 	view {
 		# cat=plugin.play/file; type=string; label=Path to template root (FE)
 		templateRootPath = EXT:play/Resources/Private/Templates/
@@ -13,6 +13,13 @@ plugin.play {
 	persistence {
 		# cat=plugin.play//a; type=string; label=Default storage PID
 		storagePid = 4
+	}
+
+	settings {
+		svg {
+			# cat=plugin.play/settings; type=string; label=Default path for svg files
+			path = EXT:play/Resources/Public/Svg/
+		}
 	}
 }
 

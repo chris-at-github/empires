@@ -9,14 +9,14 @@
 @import 'bootstrap/mixins/hover';
 //@import 'bootstrap/mixins/image';
 //@import 'bootstrap/mixins/badge';
-//@import 'bootstrap/mixins/resize';
-//@import 'bootstrap/mixins/screen-reader';
-//@import 'bootstrap/mixins/size';
-//@import 'bootstrap/mixins/reset-text';
-//@import 'bootstrap/mixins/text-emphasis';
-//@import 'bootstrap/mixins/text-hide';
-//@import 'bootstrap/mixins/text-truncate';
-//@import 'bootstrap/mixins/visibility';
+@import 'bootstrap/mixins/resize';
+@import 'bootstrap/mixins/screen-reader';
+@import 'bootstrap/mixins/size';
+@import 'bootstrap/mixins/reset-text';
+@import 'bootstrap/mixins/text-emphasis';
+@import 'bootstrap/mixins/text-hide';
+@import 'bootstrap/mixins/text-truncate';
+@import 'bootstrap/mixins/visibility';
 
 // Components
 //@import 'bootstrap/mixins/alert';

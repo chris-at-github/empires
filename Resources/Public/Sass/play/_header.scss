@@ -1,5 +1,6 @@
 #header {
 	margin: 0 0 2px 0;
+	padding: 10px 0;
 	background: #fff;
 }
 
@@ -12,5 +13,17 @@
 		&:hover, &:focus {
 			color: $link-hover-color;
 		}
+	}
+}
+
+@include media-breakpoint-up(sm) {
+	#header {
+		padding: 15px 0;
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	#navigation-main {
+		padding: 4px 0;
 	}
 }

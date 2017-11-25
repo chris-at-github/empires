@@ -1,7 +1,14 @@
 <div id="header">
 	<div class="container-fluid">
-		<div id="navigation-main">
-			<f:cObject typoscriptObjectPath="navigation.main" />
+		<div class="row">
+			<div class="col-sm-3">
+				<f:render partial="Page/Logo" section="Main" />
+			</div>
+			<div class="col-sm-9">
+				<div id="navigation-main">
+					<f:cObject typoscriptObjectPath="navigation.main" />
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
