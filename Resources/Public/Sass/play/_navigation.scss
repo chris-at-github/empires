@@ -1,0 +1,29 @@
+// ---------------------------------------------------------------------------
+// Default
+.navigation {
+	ul {
+		@include list-unstyled();
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	a {
+		& {
+			display: block;
+			text-decoration: none;
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------
+// Horizontal
+.navigation-horizontal {
+	ul {
+		margin-left: -10px;
+		margin-right: -10px;
+	}
+
+	a {
+		padding: 5px 10px;
+	}
+}

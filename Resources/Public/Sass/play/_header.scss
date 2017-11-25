@@ -1,0 +1,16 @@
+#header {
+	margin: 0 0 2px 0;
+	background: #fff;
+}
+
+#navigation-main {
+	a {
+		& {
+			color: $body-color;
+		}
+
+		&:hover, &:focus {
+			color: $link-hover-color;
+		}
+	}
+}
