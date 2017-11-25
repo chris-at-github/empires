@@ -8,6 +8,27 @@ page {
 		application = fileadmin/Resources/Public/Js/application.js
 	}
 
+	shortcutIcon = typo3conf/ext/play/Resources/Public/Icons/favicon.ico
+
+	headerData {
+
+		// Page title
+		10 = COA
+		10 {
+			wrap = <title> | </title>
+
+			10 = TEXT
+			10.field = subtitle // title
+
+			20 = TEXT
+			20.value = /
+			20.noTrimWrap = | | |
+
+			30 = TEXT
+			30.value < sitetitle
+		}
+	}
+
 	10 = FLUIDTEMPLATE
 	10 {
 		templateName = Default

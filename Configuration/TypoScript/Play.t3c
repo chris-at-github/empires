@@ -23,6 +23,16 @@ plugin.tx_play {
 	}
 }
 
+// Default paths for resources.
+folders {
+	private = typo3conf/ext/play/Resources/Private
+	public = typo3conf/ext/play/Resources/Public
+
+	images = fileadmin/Resources/Public/Images
+	css = fileadmin/Resources/Public/Css
+	js = fileadmin/Resources/Public/Js
+}
+
 meta {
 	# cat=meta; type=string; label=Keywords: Enter a comma separated list of keywords.
 	keywords =
