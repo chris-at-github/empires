@@ -1,0 +1,25 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Einstellungen</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.displayFilter>
+						<TCEforms>
+							<label>Suchfilter (für Produktchecks)</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</settings.displayFilter>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>
