@@ -1,18 +1,31 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Ueberschreiben des Standard Content Elements
 lib.contentElement {
 	layoutRootPaths {
   	100 = EXT:play/Resources/Private/Extensions/FluidStyledContent/Layouts/
   }
+
 	templateRootPaths {
   	100 = EXT:play/Resources/Private/Extensions/FluidStyledContent/Templates/
   }
+
 	partialRootPaths {
   	100 = EXT:play/Resources/Private/Extensions/FluidStyledContent/Partials/
   }
+
+	dataProcessing {
+		100 = Chris\Play\DataProcessing\ContentElementProcessor
+	}
 }
-# lib.fluidContent {
-# 	templateRootPaths {
-#   	200 = EXT:datamints_play/Resources/Private/Templates/
-#   }
-# }
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Bestehende Content Elemente mit dem Element Processor verknuepfen
+tt_content {
+	header.dataProcessing < lib.contentElement.dataProcessing
+	text.dataProcessing < lib.contentElement.dataProcessing
+	image.dataProcessing < lib.contentElement.dataProcessing
+	textmedia.dataProcessing < lib.contentElement.dataProcessing
+	html.dataProcessing < lib.contentElement.dataProcessing
+}
 
 # <INCLUDE_TYPOSCRIPT: source="FILE:EXT:datamints_play/Configuration/TypoScript/ContentElement/PageHeader.t3s">
