@@ -1,0 +1,21 @@
+.card {
+	& {
+		border: 0;
+		margin-bottom: 20px !important;
+	}
+
+	& + .card {
+		//margin-top: 20px;
+	}
+}
+
+.card-title {
+	font-size: 0.940rem;
+	font-weight: 600;
+}
+
+@include media-breakpoint-up(lg) {
+	.card-title {
+		font-size: 1.065rem;
+	}
+}
