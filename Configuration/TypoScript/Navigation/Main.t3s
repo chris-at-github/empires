@@ -6,7 +6,4 @@ navigation.main {
 	special.value = {$navigation.main}
 
 	1.wrap = <nav class="navigation navigation-horizontal"><ul> | </ul></nav>
-
-	2 < .1
-	2.wrap = <ul> | </ul>
 }
