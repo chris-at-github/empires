@@ -15,13 +15,14 @@ class ContentElementProcessor implements DataProcessorInterface {
 	/**
 	 * liefert ein Array mit den CSS-Klassen die dem aueßeren DIV zugeordnet werden
 	 *
-	 * @param array $processorConfiguration configuration aus dem typoscript
 	 * @param array $processedData Daten des Contentelements aus der Datenbank
+	 * @param array $processorConfiguration Konfiguration aus Typoscript
+	 * @param ContentObjectRenderer $cObject
 	 * @return array
 	 */
-	protected function getFrameClasses(array $processorConfiguration, array $processedData) {
+	protected function getFrameClasses(array $processedData, array $processorConfiguration, ContentObjectRenderer $cObject) {
 		$frameClasses = [];
-		$frameTypeClass = $this->getFrameTypeClass($processedData);
+		$frameTypeClass = $this->getFrameTypeClass($processedData, $processorConfiguration, $cObject);
 
 		if(empty($frameTypeClass) === false) {
 			$frameClasses[] = $frameTypeClass;
@@ -35,20 +36,28 @@ class ContentElementProcessor implements DataProcessorInterface {
 	/**
 	 * Erstellt eine Klasse anhand des CTypes
 	 *
-	 * @param array $processedData
-	 * @return array $processedData
+	 * @param array $processedData Daten des Contentelements aus der Datenbank
+	 * @param array $processorConfiguration Konfiguration aus Typoscript
+	 * @param ContentObjectRenderer $cObject
+	 * @return string
 	 */
-	protected function getFrameTypeClass($processedData) {
+	protected function getFrameTypeClass($processedData, $processorConfiguration, $cObject) {
 		$frameType = $processedData['data']['CType'];
 
 		// Bezeichner normalisieren
 		// _ -> -
 		// -- -> -
 		$frameType = preg_replace(
-			['/_/', '/[-]+/'],
+			['/[_\s]/', '/[-]+/'],
 			['-', '-'],
-			strtolower($frameType)
+			strtolower(trim($frameType))
 		);
+
+		// StdWrap auf $frameType anwenden
+		if(isset($processorConfiguration['frameTypeClass.']) === true) {
+			$frameType = $cObject->stdWrap($frameType, $processorConfiguration['frameTypeClass.']);
+		}
+
 
 		// mit einheitlichen Prefix versehen
 		$frameType = 'ce-frame--type-' . $frameType;
@@ -133,16 +142,16 @@ class ContentElementProcessor implements DataProcessorInterface {
 	/**
 	 * Parst die Inhalte aller verknupeften Inhaltselemente
 	 *
-	 * @param ContentObjectRenderer $cObj The data of the content element or page
+	 * @param ContentObjectRenderer $cObject The data of the content element or page
 	 * @param array $contentObjectConfiguration The configuration of Content Object
 	 * @param array $processorConfiguration The configuration of this processor
 	 * @param array $processedData Key/value store of processed data (e.g. to be passed to a Fluid View)
 	 * @return array the processed data as key/value store
 	 */
-	public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData) {
+	public function process(ContentObjectRenderer $cObject, array $contentObjectConfiguration, array $processorConfiguration, array $processedData) {
 
 		// Fuege alle Klassen zusammen -> wird nur als String im Layout ausgegeben
-		$processedData['data']['frame_classes'] = implode(' ', $this->getFrameClasses($processorConfiguration, $processedData));
+		$processedData['data']['frame_classes'] = implode(' ', $this->getFrameClasses($processedData, $processorConfiguration, $cObject));
 
 		// Abstandsklassen zu einem einheitlichen Zustand normalisieren
 		$processedData = $this->normalizeSpaceClasses($processedData);
