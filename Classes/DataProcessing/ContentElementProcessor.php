@@ -21,10 +21,39 @@ class ContentElementProcessor implements DataProcessorInterface {
 	 */
 	protected function getFrameClasses(array $processorConfiguration, array $processedData) {
 		$frameClasses = [];
+		$frameTypeClass = $this->getFrameTypeClass($processedData);
+
+		if(empty($frameTypeClass) === false) {
+			$frameClasses[] = $frameTypeClass;
+		}
 
 //		$replaceClasses = $this->replaceClasses($processedData, $processorConfiguration);
 
 		return $frameClasses;
+	}
+
+	/**
+	 * Erstellt eine Klasse anhand des CTypes
+	 *
+	 * @param array $processedData
+	 * @return array $processedData
+	 */
+	protected function getFrameTypeClass($processedData) {
+		$frameType = $processedData['data']['CType'];
+
+		// Bezeichner normalisieren
+		// _ -> -
+		// -- -> -
+		$frameType = preg_replace(
+			['/_/', '/[-]+/'],
+			['-', '-'],
+			strtolower($frameType)
+		);
+
+		// mit einheitlichen Prefix versehen
+		$frameType = 'ce-frame--type-' . $frameType;
+
+		return $frameType;
 	}
 
 
