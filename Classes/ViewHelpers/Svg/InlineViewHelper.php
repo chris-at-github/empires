@@ -1,6 +1,6 @@
 <?php
 
-namespace Chris\Play\ViewHelpers\Svg;
+namespace Cext\Play\ViewHelpers\Svg;
 
 /***************************************************************
  *  Copyright notice

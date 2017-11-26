@@ -1,6 +1,6 @@
 <?php
 
-namespace Chris\Play\DataProcessing;
+namespace Cext\Play\DataProcessing;
 
 use Doctrine\Common\Util\Debug;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;

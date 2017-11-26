@@ -14,7 +14,7 @@ lib.contentElement {
   }
 
 	dataProcessing {
-		100 = Chris\Play\DataProcessing\ContentElementProcessor
+		100 = Cext\Play\DataProcessing\ContentElementProcessor
 		100 {
 // stdWrap auf frameTypeClass anwenden
 //			frameTypeClass {
