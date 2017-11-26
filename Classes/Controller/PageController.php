@@ -47,11 +47,7 @@ class PageController extends ActionController {
 			'parent' => $this->getStoragePids()
 		];
 
-//		/* @var PageRepository $repository */
-//		$repository = $this->objectManager->get('Datamints\\DatamintsArticle\\Domain\\Repository\\PageRepository')->findAll($filter, $sorting);
-//		$cObject = $this->configurationManager->getContentObject();
-//
-//		$this->view->assign('pages', $pages);
-//		$this->view->assign('record', $cObject->data);
+		$this->view->assign('pages', $this->objectManager->get(\Cext\Play\Domain\Repository\PageRepository::class)->findAll($filter, $sorting));
+		$this->view->assign('record', $this->configurationManager->getContentObject()->data);
 	}
 }

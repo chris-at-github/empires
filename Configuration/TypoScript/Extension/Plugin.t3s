@@ -19,3 +19,28 @@ plugin.tx_play {
 		}
 	}
 }
+
+config.tx_extbase {
+	persistence {
+		classes {
+			Cext\Play\Domain\Model\Page {
+				mapping {
+					tableName = pages
+					columns {
+
+						// Map existing fields.
+						uid.mapOnProperty = uid
+						pid.mapOnProperty = pid
+						title.mapOnProperty = title
+						doktype.mapOnProperty = doktype
+						sorting.mapOnProperty = sorting
+						crdate.mapOnProperty = createDate
+
+						// Map new fields to be able to use shorter names.
+#						tx_datamints_article_keyword.mapOnProperty = keyword
+					}
+				}
+			}
+		}
+	}
+}
