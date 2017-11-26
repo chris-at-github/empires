@@ -1,0 +1,33 @@
+.btn, .btn-primary, .btn-default, .btn-danger {
+	& {
+		text-transform: uppercase;
+	}
+
+	& + .btn {
+		margin-left: 5px;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&:focus,
+	&.focus,
+	&:not([disabled]):not(.disabled):active,
+	&:not([disabled]):not(.disabled).active {
+		box-shadow: none;
+	}
+}
+
+// @mixin button-variant($background, $border, $hover-background, $hover-border, $active-background, $active-border) {
+.btn-default {
+	@include button-variant(transparent, $body-color, #e1e1e1);
+}
+
+.btn-primary {
+	@include button-variant(#808080, #fff);
+}
+
+.btn-danger {
+	@include button-variant(transparent, $danger, $danger, #fff);
+}

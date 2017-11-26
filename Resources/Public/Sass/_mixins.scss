@@ -1,8 +1,4 @@
-// ---------------------------------------------------------------------------
-// Play
-@import 'play/mixins/lists';
-
-// ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
 // Bootstrap
 // Toggles
 @import 'bootstrap/mixins/breakpoints';
@@ -20,7 +16,7 @@
 
 // Components
 //@import 'bootstrap/mixins/alert';
-//@import 'bootstrap/mixins/buttons';
+@import 'bootstrap/mixins/buttons';
 //@import 'bootstrap/mixins/caret';
 //@import 'bootstrap/mixins/pagination';
 //@import 'bootstrap/mixins/lists';
@@ -43,3 +39,8 @@
 @import 'bootstrap/mixins/grid-framework';
 @import 'bootstrap/mixins/grid';
 @import 'bootstrap/mixins/float';
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Play
+@import 'play/mixins/list';
+@import 'play/mixins/button';
