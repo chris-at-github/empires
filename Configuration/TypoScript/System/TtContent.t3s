@@ -29,9 +29,10 @@ lib.contentElement {
 tt_content {
 	header.dataProcessing < lib.contentElement.dataProcessing
 	text.dataProcessing < lib.contentElement.dataProcessing
-	image.dataProcessing < lib.contentElement.dataProcessing
 	textmedia.dataProcessing < lib.contentElement.dataProcessing
 	html.dataProcessing < lib.contentElement.dataProcessing
+
+	image.dataProcessing.100 < lib.contentElement.dataProcessing.100
 }
 
 # <INCLUDE_TYPOSCRIPT: source="FILE:EXT:datamints_play/Configuration/TypoScript/ContentElement/PageHeader.t3s">
