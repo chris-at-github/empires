@@ -1,8 +1,8 @@
 plugin.tx_play {
 	view {
-		layoutRootPaths.0 = {$plugin.tx_play.view.layoutRootPath}
-		templateRootPaths.0 = {$plugin.tx_play.view.templateRootPath}
-		partialRootPaths.0 = {$plugin.tx_play.view.partialRootPath}
+		layoutRootPaths.0 = EXT:play/Resources/Private/Extensions/Play/Layouts/
+		templateRootPaths.0 = EXT:play/Resources/Private/Extensions/Play/Templates/
+		partialRootPaths.0 = EXT:play/Resources/Private/Extensions/Play/Partials/
 	}
 
 	persistence {
