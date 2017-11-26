@@ -28,8 +28,6 @@ class ContentElementProcessor implements DataProcessorInterface {
 			$frameClasses[] = $frameTypeClass;
 		}
 
-//		$replaceClasses = $this->replaceClasses($processedData, $processorConfiguration);
-
 		return $frameClasses;
 	}
 
@@ -43,6 +41,11 @@ class ContentElementProcessor implements DataProcessorInterface {
 	 */
 	protected function getFrameTypeClass($processedData, $processorConfiguration, $cObject) {
 		$frameType = $processedData['data']['CType'];
+
+		// Plugins
+		if($frameType === 'list' && empty($processedData['data']['list_type']) === false) {
+			$frameType = $processedData['data']['list_type'];
+		}
 
 		// Bezeichner normalisieren
 		// _ -> -
@@ -103,41 +106,6 @@ class ContentElementProcessor implements DataProcessorInterface {
 //
 //		return $headerClasses;
 //	}
-
-	/**
-	 * gibt die ersetzte classe zurück
-	 * @see http://redmine/issues/17280
-	 *
-	 * @param array $processedData Daten des Contentelements aus der Datenbank
-	 * @param array $processorConfiguration configuration aus dem typoscript
-	 * @return string            gibt die ersetzte classe zurück
-	 */
-	protected function replaceClasses(array $processedData, array $processorConfiguration) {
-		$replacement = "";
-
-		$cType = $processedData["data"]["CType"];
-		$ident = $cType;
-
-		$fcefile = $processedData["data"]["tx_fed_fcefile"];
-
-		$fcefile = preg_replace("<.*\:>", "", $fcefile);
-		$fcefile = preg_replace("<\..*>", "", $fcefile);
-
-		if($fcefile != '' && $cType == 'fluidcontent_content') {
-			$ident .= "-" . $fcefile;
-		}
-		$ident = strtolower($ident);
-
-		if(isset($processorConfiguration["frameClassReplace."]) && isset($processorConfiguration["frameClassReplace."][$ident])) {
-			$replacement = $processorConfiguration["frameClassReplace."][$ident];
-		}
-
-		$replacement = strtolower($replacement);
-		$replacement = preg_replace("<[ ]+>", " ", $replacement);
-		$replacement = preg_replace("<\_>", "-", $replacement);
-
-		return $replacement;
-	}
 
 	/**
 	 * Parst die Inhalte aller verknupeften Inhaltselemente
