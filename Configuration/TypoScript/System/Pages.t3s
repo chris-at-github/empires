@@ -1,0 +1,5 @@
+lib.pages = COA
+lib.pages {
+	home = TEXT
+	home.value = {$pages.home}
+}
