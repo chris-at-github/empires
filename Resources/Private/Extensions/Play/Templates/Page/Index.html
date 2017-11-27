@@ -3,18 +3,12 @@
 
 <f:section name="Main">
 	<f:if condition="{pages}">
-		<div class="card-columns">
+		<div class="card-columns card-container">
+
 			<f:for each="{pages}" as="page">
-				<div class="card">
-					<div class="card-body">
-						<div class="card-title">{page.title}</div>
-						<div class="card-text">
-							This is a longer card with supporting text below as a natural lead-in to additional
-							content. This content is a little bit longer.
-						</div>
-					</div>
-				</div>
+				<f:render partial="Card/Default" section="Main" arguments="{page: page}" />
 			</f:for>
+
 		</div>
 	</f:if>
 </f:section>

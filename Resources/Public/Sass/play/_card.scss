@@ -10,8 +10,22 @@
 }
 
 .card-title {
-	font-size: 0.940rem;
-	font-weight: 600;
+	& {
+		font-size: 0.940rem;
+		font-weight: 600;
+	}
+
+	a {
+		& {
+			text-decoration: none;
+			color: $body-color;
+		}
+
+		&:hover, &:focus {
+			color: $link-hover-color;
+		}
+	}
+
 }
 
 @include media-breakpoint-up(lg) {
