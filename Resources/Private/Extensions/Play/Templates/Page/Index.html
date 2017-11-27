@@ -3,7 +3,7 @@
 
 <f:section name="Main">
 	<f:if condition="{pages}">
-		<div class="card-columns card-container">
+		<div class="card-container row" data-columns>
 
 			<f:for each="{pages}" as="page">
 				<f:render partial="Card/Default" section="Main" arguments="{page: page}" />

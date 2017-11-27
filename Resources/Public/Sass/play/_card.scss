@@ -1,11 +1,10 @@
 .card {
 	& {
 		border: 0;
-		margin-bottom: 20px !important;
 	}
 
 	& + .card {
-		//margin-top: 20px;
+		margin-top: 20px;
 	}
 }
 
@@ -25,11 +24,30 @@
 			color: $link-hover-color;
 		}
 	}
+}
 
+.card-container {
+	&[data-columns]::before {
+		content: '1 .col-12';
+	}
+
+	.col-12 + .col-12, .card + .card {
+		margin-top: 20px;
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.card-container[data-columns]::before {
+		content: '2 .col-md-6';
+	}
 }
 
 @include media-breakpoint-up(lg) {
 	.card-title {
 		font-size: 1.065rem;
+	}
+
+	.card-container[data-columns]::before {
+		content: '3 .col-lg-4';
 	}
 }
