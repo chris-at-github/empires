@@ -1,10 +1,15 @@
 .container-fluid {
 	width: 1200px;
 	max-width: 100%;
+	margin: 0 auto;
 	padding: 0 20px;
 }
 
 #content-header {
+	& {
+		margin-bottom: 5px;
+	}
+
 	.ce-frame--space-before-auto .ce-header--layout-1 {
 		& {
 			margin-top: 30px;
@@ -20,7 +25,7 @@
 	}
 }
 
-#content-main {
+#content-main, #content-header {
 	& {
 		background: #fff;
 	}
@@ -62,7 +67,7 @@
 
 // Farben
 .ce-frame--layout-0 {
-	background: #fff
+	background: transparent;
 }
 
 .ce-frame--layout-1 {
@@ -70,11 +75,6 @@
 }
 
 @include media-breakpoint-up(sm) {
-	.container-fluid {
-		padding-left: 40px;
-		padding-right: 40px;
-	}
-
 	#content-header {
 		.ce-frame--space-before-auto .ce-header--layout-1 {
 			margin-top: 40px;
@@ -96,8 +96,8 @@
 
 @include media-breakpoint-up(lg) {
 	.container-fluid {
-		padding-left: 60px;
-		padding-right: 60px;
+		padding-left: 40px;
+		padding-right: 40px;
 	}
 
 	#content-header {

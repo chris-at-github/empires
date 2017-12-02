@@ -1,8 +1,4 @@
 .btn, .btn-primary, .btn-default, .btn-danger {
-	& {
-		text-transform: uppercase;
-	}
-
 	& + .btn {
 		margin-left: 5px;
 	}
@@ -20,14 +16,10 @@
 }
 
 // @mixin button-variant($background, $border, $hover-background, $hover-border, $active-background, $active-border) {
-.btn-default {
-	@include button-variant(transparent, $body-color, #e1e1e1);
-}
-
-.btn-primary {
-	@include button-variant(#808080, #fff);
+.btn-primary, .btn-default {
+	@include button-variant(#ddd, $body-color);
 }
 
 .btn-danger {
-	@include button-variant(transparent, $danger, $danger, #fff);
+	@include button-variant($danger, #fff);
 }

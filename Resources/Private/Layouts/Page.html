@@ -1,24 +1,22 @@
-<div id="header">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-3">
-				<f:render partial="Page/Logo" section="Main" />
-			</div>
-			<div class="col-sm-9">
-				<div id="navigation-main">
-					<f:cObject typoscriptObjectPath="navigation.main" />
-				</div>
+<div id="header" class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3">
+			<f:render partial="Page/Logo" section="Main" />
+		</div>
+		<div class="col-sm-9">
+			<div id="navigation-main">
+				<f:cObject typoscriptObjectPath="navigation.main" />
 			</div>
 		</div>
 	</div>
 </div>
 
 <f:if condition="{f:cObject(typoscriptObjectPath: 'block.contentHeader')}">
-	<div id="content-header" class="content">
+	<div id="content-header" class="content container-fluid">
 		<f:render section="Header" />
 	</div>
 </f:if>
 
-<div id="content-main" class="content">
+<div id="content-main" class="content container-fluid">
 	<f:render section="Main" />
 </div>

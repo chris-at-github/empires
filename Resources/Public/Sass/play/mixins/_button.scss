@@ -6,7 +6,7 @@
 	@include hover {
 		color: $hover-color;
 		@include gradient-bg($hover-background);
-		border-color: $background;
+		border-color: $hover-background;
 	}
 
 	// Disabled comes first so active can properly restyle
