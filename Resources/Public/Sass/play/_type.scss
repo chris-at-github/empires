@@ -31,6 +31,22 @@ b, strong {
 	font-weight: 600;
 }
 
+// Hinterlegung von Links mit einer eingefaerbten Linie unterhalb
+// @see: https://css-tricks.com/styling-underlines-web/#article-header-id-5
+// @see: https://policy.pinterest.com/de/privacy-policy
+a {
+	& {
+		background: linear-gradient(to top, $white 75%, $gray-400 75%) repeat-x 0 bottom;
+		background-size: 1px 2px;
+		text-shadow: -1px 0 $white, 1px 0 $white, 2px 0 $white;
+		transition: color 0.25s ease;
+	}
+
+	&:hover, &:focus {
+		background-image: linear-gradient(to top, $white 75%, transparent 75%);
+	}
+}
+
 ul {
 	& {
 		padding: 0;
