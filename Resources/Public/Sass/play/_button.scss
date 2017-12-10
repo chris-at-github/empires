@@ -17,9 +17,9 @@
 
 // @mixin button-variant($background, $border, $hover-background, $hover-border, $active-background, $active-border) {
 .btn-primary, .btn-default {
-	@include button-variant(#ddd, $body-color);
+	@include button-variant($gray-300, $body-color);
 }
 
 .btn-danger {
-	@include button-variant($danger, #fff);
+	@include button-variant($danger, $white);
 }

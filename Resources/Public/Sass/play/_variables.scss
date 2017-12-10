@@ -1,7 +1,21 @@
 // ---------------------------------------------------------------------------------------------------------------------
+// Colors
+$white: #fff !default;
+$gray-100: #f3f3f3 !default;
+$gray-200: #e9ecef !default;
+$gray-300: #ddd !default;
+$gray-400: #ccc !default;
+$gray-500: #fff !default;
+$gray-600: #555 !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #111 !default;
+$black: #000 !default;
+
+// ---------------------------------------------------------------------------------------------------------------------
 // Body
-$body-color: #555 !default;
-$body-bg: #f3f3f3 !default;
+$body-color: $gray-600 !default;
+$body-bg: $gray-100 !default;
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Border Radius
@@ -22,9 +36,9 @@ $line-height-base: 1.7 !default;
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Links
-$link-color: #333 !default;
-$link-hover-color: #000 !default;
-$link-decoration: underline !default;
+$link-color: $gray-600 !default;
+$link-hover-color: $gray-900 !default;
+$link-decoration: none !default;
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Grid columns
