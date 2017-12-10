@@ -1,7 +1,6 @@
 #header {
 	margin-bottom: 5px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding: 10px 20px;
 	background: #fff;
 }
 
@@ -25,6 +24,11 @@
 }
 
 @include media-breakpoint-up(lg) {
+	#header {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+
 	#navigation-main {
 		padding: 4px 0;
 	}

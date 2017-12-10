@@ -2,7 +2,7 @@
 	width: 1200px;
 	max-width: 100%;
 	margin: 0 auto;
-	padding: 0 20px;
+	padding: 0;
 }
 
 #content-header {
@@ -30,12 +30,18 @@
 		background: #fff;
 	}
 
-	& > .ce-frame:first-child {
-		@extend .ce-frame--space-before-none;
+	& > .ce-frame {
+		&:first-child {
+			@extend .ce-frame--space-before-none;
+		}
+
+		&:last-child {
+			@extend .ce-frame--space-after-small;
+		}
 	}
 
-	& > .ce-frame:last-child {
-		@extend .ce-frame--space-after-small;
+	.ce-frame--inner {
+		padding: 0 20px;
 	}
 }
 
@@ -95,9 +101,11 @@
 }
 
 @include media-breakpoint-up(lg) {
-	.container-fluid {
-		padding-left: 40px;
-		padding-right: 40px;
+	#content-main, #content-header {
+		.ce-frame--inner {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
 	}
 
 	#content-header {
