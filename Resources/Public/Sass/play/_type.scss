@@ -56,14 +56,14 @@ ul {
 		& {
 			position: relative;
 			list-style: none;
-			padding: 0 0 0 16px;
+			padding: 0 0 0 14px;
 		}
 
 		&:before {
 			content: '';
 			position: absolute;
-			top: 9px; left: 0;
-			border: 2px solid $body-color;
+			top: 10px; left: 1px;
+			border: 2px solid $gray-500;
 		}
 
 		& + li {
