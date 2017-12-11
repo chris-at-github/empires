@@ -1,6 +1,6 @@
 .btn, .btn-primary, .btn-default, .btn-danger {
 	& {
-		font-size: inherit;
+		font-size: $font-size-base;
 	}
 
 	& + .btn {
@@ -32,5 +32,6 @@
 	.btn, .btn-primary, .btn-default, .btn-danger {
 		padding-left: 1.5rem;
 		padding-right: 1.5rem;
+		font-size: $font-size-lg;
 	}
 }
