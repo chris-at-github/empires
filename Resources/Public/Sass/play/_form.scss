@@ -1,3 +1,22 @@
 form {
 	margin: 10px 0 0 0;
 }
+
+label {
+	margin: 0 0 5px 0;
+}
+
+.form-group, .form-check, .form-button {
+	margin: 10px 0 0 0;
+}
+
+.form-control {
+	padding: $input-btn-padding-y 0.75rem;
+	font-size: inherit;
+}
+
+@include media-breakpoint-up(sm) {
+	form, .form-group, .form-check, .form-button {
+		margin-top: 20px;
+	}
+}
