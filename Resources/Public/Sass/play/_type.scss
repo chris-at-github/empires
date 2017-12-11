@@ -98,10 +98,6 @@ ol {
 	}
 
 	h3, .h3 {
-		& {
-			font-size: 20px;
-		}
-
 		& + p {
 			margin-top: 10px;
 		}
@@ -120,6 +116,10 @@ ol {
 	h2, .h2 {
 		margin-top: 40px;
 		font-size: 24px;
+	}
+
+	h3, .h3 {
+		font-size: 20px;
 	}
 }
 
