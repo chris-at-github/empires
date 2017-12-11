@@ -127,4 +127,10 @@ ul {
 		margin-top: 35px;
 		font-size: 22px;
 	}
+
+	ul {
+		li:before {
+			top: 11px;
+		}
+	}
 }
