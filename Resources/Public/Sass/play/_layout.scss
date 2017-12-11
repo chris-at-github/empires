@@ -80,6 +80,10 @@
 	background: $body-bg;
 }
 
+.ce-frame--layout-2 {
+	border-top: 5px solid $body-bg;
+}
+
 @include media-breakpoint-up(sm) {
 	#content-header {
 		.ce-frame--space-before-auto .ce-header--layout-1 {
