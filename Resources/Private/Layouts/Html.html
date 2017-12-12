@@ -1,3 +1,5 @@
+{namespace p=Cext\Play\ViewHelpers}
+
 <div id="content-header" class="content container-fluid">
 	<f:render partial="Html/Header" />
 </div>
@@ -6,3 +8,7 @@
 	<f:render partial="Html/Text" />
 	<f:render partial="Html/Form" />
 </div>
+
+<f:format.raw>
+	<p:svg.inline source="/fileadmin/Resources/Public/Svg/spritemap.svg" />
+</f:format.raw>

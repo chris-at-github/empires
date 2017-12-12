@@ -93,6 +93,10 @@ class InlineViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelp
 
 		if(strpos($path, '/') !== 0) {
 			$path = $settings['svg']['path'] . $path;
+
+		// /fileadmin/... wird zu fileadmin und kann damit ueber GeneralUtility::getFileAbsFileName aufgeloest werden
+		} else {
+			$path = trim($path, '/');
 		}
 
 		return \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($path);
