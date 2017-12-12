@@ -7,12 +7,26 @@ label {
 }
 
 .form-group, .form-check, .form-button {
-	margin: 10px 0 0 0;
+	& {
+		margin: 10px 0 0 0;
+	}
+
+	&.disabled {
+		label, .form-check-label {
+			color: $gray-500;
+		}
+	}
 }
 
 .form-control {
-	padding: $input-btn-padding-y 0.75rem;
-	font-size: inherit;
+	& {
+		padding: $input-btn-padding-y 0.75rem;
+		font-size: inherit;
+	}
+
+	&:disabled {
+		opacity: 0.65;
+	}
 }
 
 @include media-breakpoint-up(sm) {
