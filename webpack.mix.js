@@ -1,6 +1,8 @@
 var mix = require('laravel-mix');
 		mix.setPublicPath('.');
 
+var spritemap = require('svg-spritemap-webpack-plugin');
+
 // const spriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 // Autoload jQuery
@@ -20,4 +22,13 @@ var mix = require('laravel-mix');
  |
  */
 mix.js('typo3conf/ext/play/Resources/Public/Js/application.js', 'fileadmin/Resources/Public/Js')
- 	.sass('typo3conf/ext/play/Resources/Public/Sass/application.scss', 'fileadmin/Resources/Public/Css');
+ 	.sass('typo3conf/ext/play/Resources/Public/Sass/application.scss', 'fileadmin/Resources/Public/Css')
+	.webpackConfig({
+		plugins: [
+			new spritemap({
+				src: 'typo3conf/ext/play/Resources/Public/Svg/Sprite/*.svg',
+				filename: 'fileadmin/Resources/Public/Svg/spritemap.svg',
+				svgo: false
+			})
+		]
+	});;
