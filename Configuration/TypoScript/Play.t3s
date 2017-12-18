@@ -5,6 +5,7 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/Navigation/Default.t3s">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/Navigation/Main.t3s">
 
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/Block/PageHeader.t3s">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/Block/ContentHeader.t3s">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/Block/ContentMain.t3s">
 

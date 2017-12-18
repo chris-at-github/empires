@@ -1,8 +1,13 @@
+<div id="content-header" class="content container-fluid">
 <f:if condition="{f:cObject(typoscriptObjectPath: 'block.contentHeader')}">
-	<div id="content-header" class="content container-fluid">
+	<f:then>
 		<f:render section="Header" />
-	</div>
+	</f:then>
+	<f:else>
+		{f:cObject(typoscriptObjectPath: 'block.pageHeader')}
+	</f:else>
 </f:if>
+</div>
 
 <div id="content-main" class="content container-fluid">
 	<f:render section="Main" />

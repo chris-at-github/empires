@@ -1,0 +1,8 @@
+block.pageHeader = COA
+block.pageHeader {
+	10 = TEXT
+	10 {
+		data = page:title
+		wrap = <h1> | </h1>
+	}
+}
