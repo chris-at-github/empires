@@ -2,6 +2,7 @@
 
 namespace Cext\Play\Condition;
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
@@ -45,7 +46,7 @@ class ContentFieldCondition extends \TYPO3\CMS\Core\Configuration\TypoScript\Con
 
 		foreach($expressions as $expression) {
 			if(strpos($expression, '==') !== false) {
-				list($name, $value) = \TYPO3\CMS\Extbase\Utility\ArrayUtility::trimExplode('==', $expression);
+				list($name, $value) = GeneralUtility::trimExplode('==', $expression);
 
 				// Wenn Keyword parent:* im $name vorkommt wende den Vergleich auf das Eltern-Element an
 				if(strpos($name, 'parent:') !== false && $parent !== null) {
