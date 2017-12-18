@@ -1,36 +1,64 @@
-form {
-	margin: 10px 0 0 0;
-}
-
-label {
-	margin: 0 0 5px 0;
-}
-
 .form-group, .form-check, .form-button {
-	& {
-		margin: 10px 0 0 0;
-	}
-
-	&.disabled {
-		label, .form-check-label {
-			color: $gray-500;
-		}
-	}
+	margin: 0.75rem 0 0 0;
 }
 
 .form-control {
-	& {
-		padding: $input-btn-padding-y 0.75rem;
-		font-size: inherit;
+	display: block;
+	width: 100%;
+	padding: 3px;
+	font-size: inherit;
+	border: 1px solid #ccc;
+
+	// Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214.
+	background-image: none;
+	background-clip: padding-box;
+
+	// Unstyle the caret on `<select>`s in IE10+.
+	&::-ms-expand {
+		background-color: transparent;
+		border: 0;
 	}
 
-	&:disabled {
-		opacity: 0.65;
+	&:focus {
+		outline: 0;
+		border-color: #999;
+	}
+
+	// Placeholder
+	&::placeholder {
+		// Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+		opacity: 1;
+	}
+//
+//	// Disabled and read-only inputs
+//	//
+//	// HTML5 says that controls under a fieldset > legend:first-child won't be
+//	// disabled if the fieldset is disabled. Due to implementation difficulty, we
+//	// don't honor that edge case; we style them as disabled anyway.
+//	&:disabled,	&[readonly] {
+//		// iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+//		opacity: 1;
+//	}
+}
+
+select.form-control {
+	&:not([size]):not([multiple]) {
+		height: 26px;
+	}
+
+	&:focus::-ms-value {
+		// Suppress the nested default white text on blue background highlight given to
+		// the selected option text when the (still closed) <select> receives focus
+		// in IE and (under certain conditions) Edge, as it looks bad and cannot be made to
+		// match the appearance of the native widget.
+		// See https://github.com/twbs/bootstrap/issues/19398.
+		color: inherit;
+		background-color: #fff;
 	}
 }
 
-@include media-breakpoint-up(sm) {
-	form, .form-group, .form-check, .form-button {
-		margin-top: 20px;
-	}
+// Make file inputs better match text inputs by forcing them to new lines.
+.form-control-file,
+.form-control-range {
+	display: block;
 }
