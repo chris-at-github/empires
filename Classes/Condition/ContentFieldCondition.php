@@ -21,7 +21,6 @@ class ContentFieldCondition extends \TYPO3\CMS\Core\Configuration\TypoScript\Con
 	 */
 	public function matchCondition(array $expressions) {
 		$parameter = $_GET;
-		$pid = null;
 		$parent = null;
 		$page = null;
 
@@ -31,7 +30,7 @@ class ContentFieldCondition extends \TYPO3\CMS\Core\Configuration\TypoScript\Con
 
 			// PID auslesen -> versteckt sind in edit -> tt_content -> PID => new
 			if(isset($parameter['edit']) === true && isset($parameter['edit']['tt_content']) === true) {
-				$pid = (int) trim(key($parameter['edit']['tt_content']));
+				$fields['pid'] = (int) trim(key($parameter['edit']['tt_content']));
 			}
 
 		// Bestehender Inhalt -> Laden anhand der UID (edit -> tt_content)
@@ -42,7 +41,7 @@ class ContentFieldCondition extends \TYPO3\CMS\Core\Configuration\TypoScript\Con
 				$fields = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow('*', 'tt_content', 'uid = ' . (int) $uid);
 
 				if(empty($fields) === false && isset($fields['pid']) === true) {
-					$pid = (int) $fields['pid'];
+					$fields['pid'] = (int) $fields['pid'];
 				}
 			}
 		}
@@ -51,8 +50,8 @@ class ContentFieldCondition extends \TYPO3\CMS\Core\Configuration\TypoScript\Con
 			return false;
 		}
 
-		if(isset($pid) === true) {
-			$page = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow('*', 'pages', 'uid = ' . (int) $pid);
+		if(isset($fields['pid']) === true) {
+			$page = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow('*', 'pages', 'uid = ' . (int) $fields['pid']);
 		}
 
 		// IF $fields => tx_flux_parent = ID FCE Elternelement
