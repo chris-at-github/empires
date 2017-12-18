@@ -34,3 +34,7 @@ TCAdefaults.tt_content.header = Titel
 [Cext\Play\Condition\ContentFieldCondition CType == text]
 	TCAdefaults.tt_content.header = ContentFieldCondition:Titel
 [global]
+
+[Cext\Play\Condition\ContentFieldCondition page:uid == 13]
+	TCAdefaults.tt_content.header = ContentFieldCondition:Page:13
+[global]

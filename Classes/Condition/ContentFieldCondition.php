@@ -21,22 +21,38 @@ class ContentFieldCondition extends \TYPO3\CMS\Core\Configuration\TypoScript\Con
 	 */
 	public function matchCondition(array $expressions) {
 		$parameter = $_GET;
+		$pid = null;
 		$parent = null;
+		$page = null;
 
 		// Neuer Inhalt (defVals) und Auswahl defVals -> tt_content vorhanden
-		if(isset($parameter['defVals']) === true && isset($parameter['defVals']['tt_content']) === true && isset($parameter['defVals']['tt_content']) === true) {
+		if(isset($parameter['defVals']) === true && isset($parameter['defVals']['tt_content']) === true) {
 			$fields = $parameter['defVals']['tt_content'];
-			// Bestehender Inhalt -> Laden anhand der UID (edit -> tt_content)
+
+			// PID auslesen -> versteckt sind in edit -> tt_content -> PID => new
+			if(isset($parameter['edit']) === true && isset($parameter['edit']['tt_content']) === true) {
+				$pid = (int) trim(key($parameter['edit']['tt_content']));
+			}
+
+		// Bestehender Inhalt -> Laden anhand der UID (edit -> tt_content)
 		} elseif(isset($parameter['edit']) === true && isset($parameter['edit']['tt_content']) === true) {
-			$uid = key($parameter['edit']['tt_content']);
+			$uid = trim(key($parameter['edit']['tt_content']), ' ,');
 
 			if((int) $uid !== 0) {
 				$fields = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow('*', 'tt_content', 'uid = ' . (int) $uid);
+
+				if(empty($fields) === false && isset($fields['pid']) === true) {
+					$pid = (int) $fields['pid'];
+				}
 			}
 		}
 
 		if(empty($fields) === true) {
 			return false;
+		}
+
+		if(isset($pid) === true) {
+			$page = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow('*', 'pages', 'uid = ' . (int) $pid);
 		}
 
 		// IF $fields => tx_flux_parent = ID FCE Elternelement
@@ -55,6 +71,15 @@ class ContentFieldCondition extends \TYPO3\CMS\Core\Configuration\TypoScript\Con
 					if($this->checkCondition($parent, $name, $value) === false) {
 						return false;
 					}
+
+				// Wenn Keyword page:* im $name vorkommt wende den Vergleich auf die Seiteneigenschaften an
+				} elseif(strpos($name, 'page:') !== false && $page !== null) {
+					$name = str_replace('page:', null, $name);
+
+					if($this->checkCondition($page, $name, $value) === false) {
+						return false;
+					}
+
 				} elseif($this->checkCondition($fields, $name, $value) === false) {
 					return false;
 				}
