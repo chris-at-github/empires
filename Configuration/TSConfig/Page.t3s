@@ -28,3 +28,9 @@ TCEFORM.tt_content {
 		addItems.auto = Auto
 	}
 }
+
+TCAdefaults.tt_content.header = Titel
+
+[Cext\Play\Condition\ContentFieldCondition CType == text]
+	TCAdefaults.tt_content.header = ContentFieldCondition:Titel
+[global]
