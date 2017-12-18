@@ -1,6 +1,8 @@
 .btn, .btn-primary, .btn-default, .btn-danger {
 	& {
-		font-size: $font-size-base;
+		padding: 4px 15px;
+		background: #ccc;
+		border: 0;
 	}
 
 	& + .btn {
@@ -9,6 +11,7 @@
 
 	&:hover {
 		cursor: pointer;
+		background: #aaa;
 	}
 
 	&:focus,
@@ -16,22 +19,6 @@
 	&:not([disabled]):not(.disabled):active,
 	&:not([disabled]):not(.disabled).active {
 		box-shadow: none;
-	}
-}
-
-// @mixin button-variant($background, $border, $hover-background, $hover-border, $active-background, $active-border) {
-.btn-primary, .btn-default {
-	@include button-variant($gray-300, $body-color);
-}
-
-.btn-danger {
-	@include button-variant($danger, $white);
-}
-
-@include media-breakpoint-up(lg) {
-	.btn, .btn-primary, .btn-default, .btn-danger {
-		padding-left: 1.5rem;
-		padding-right: 1.5rem;
-		font-size: $font-size-lg;
+		outline: 0;
 	}
 }
