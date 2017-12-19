@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-12-19T06:25:54Z" product-name="play">
+		<header/>
+		<body>
+			<trans-unit id="tx_play_domain_model_example">
+				<source>Example</source>
+			</trans-unit>
+			<trans-unit id="tx_play_domain_model_example.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_play_domain_model_example.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_play_domain_model_example.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_play_domain_model_example.state">
+				<source>State</source>
+			</trans-unit>
+			<trans-unit id="tx_play_domain_model_example.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_play_domain_model_exampletype">
+				<source>Example Type</source>
+			</trans-unit>
+			<trans-unit id="tx_play_domain_model_exampletype.title">
+				<source>Title</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

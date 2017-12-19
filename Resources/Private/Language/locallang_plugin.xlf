@@ -8,6 +8,12 @@
 				<source>Play: Seiten</source>
 			</trans-unit>
 
+			<trans-unit id="example.title">
+				<source>Example</source>
+			</trans-unit>
+			<trans-unit id="example.description">
+				<source></source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

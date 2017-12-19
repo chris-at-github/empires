@@ -4,6 +4,18 @@ if(!defined('TYPO3_MODE')) {
 	die('Access denied.');
 }
 
+call_user_func(function() {
+
+	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+		'Cext.Play',
+		'Example',
+		'Example'
+	);
+
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_play_domain_model_example');
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_play_domain_model_exampletype');
+});
+
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	'Cext.' . $_EXTKEY,
 	'Pages',

@@ -4,13 +4,46 @@ if(!defined('TYPO3_MODE')) {
 	die('Access denied.');
 }
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'Cext.' . $_EXTKEY,
-	'Pages',
-	[
-		'Page' => 'index',
-	],
-	[
-		'Page' => '',
-	]
-);
+call_user_func(function() {
+	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+		'Cext.Play',
+		'Example',
+		[
+			'Example' => 'list, show, new, create, edit, update, delete',
+			'ExampleType' => 'list, show'
+		],
+		// non-cacheable actions
+		[
+			'Example' => 'create, update, delete',
+			'ExampleType' => ''
+		]
+	);
+
+	// wizards
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+		'mod {
+			wizards.newContentElement.wizardItems.plugins {
+				elements {
+					example {
+						iconIdentifier = play-plugin-example
+						title = LLL:EXT:play/Resources/Private/Language/locallang_plugin.xlf:example.name
+						description = LLL:EXT:play/Resources/Private/Language/locallang_plugin.xlf:example.description
+						tt_content_defValues {
+							CType = list
+							list_type = play_example
+						}
+					}
+				}
+				show = *
+			}
+		 }'
+	);
+
+	$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+
+	$iconRegistry->registerIcon(
+		'play-plugin-example',
+		\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+		['source' => 'EXT:play/Resources/Public/Icons/plugin_example.svg']
+	);
+});
