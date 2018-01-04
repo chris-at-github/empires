@@ -39,11 +39,12 @@ call_user_func(function() {
 		 }'
 	);
 
+	// Registrierung Play Icon
+	// @see: https://www.typo3lexikon.de/typo3-tutorials/core/systemextensions/core/imaging.html
 	$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
-
 	$iconRegistry->registerIcon(
-		'play-plugin-example',
+		'play-extension',
 		\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-		['source' => 'EXT:play/Resources/Public/Icons/plugin_example.svg']
+		['source' => 'EXT:play/Resources/Public/Icons/play.svg']
 	);
 });
