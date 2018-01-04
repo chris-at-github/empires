@@ -1,6 +1,8 @@
 var mix = require('laravel-mix');
 		mix.setPublicPath('.');
 
+var argv = require('yargs').argv;
+
 var spritemap = require('svg-spritemap-webpack-plugin');
 
 // const spriteLoaderPlugin = require('svg-sprite-loader/plugin');
@@ -10,6 +12,13 @@ var spritemap = require('svg-spritemap-webpack-plugin');
 // mix.autoload({
 // 	jquery: ['$', 'window.jQuery']
 // });
+
+// Shot
+// @see: https://github.com/JeffreyWay/laravel-mix/issues/1086
+var shot = null
+if(argv.env.shot !== undefined) {
+	shot = argv.env.shot;
+}
 
 /*
  |--------------------------------------------------------------------------
@@ -22,7 +31,7 @@ var spritemap = require('svg-spritemap-webpack-plugin');
  |
  */
 mix.js('typo3conf/ext/play/Resources/Public/Js/application.js', 'fileadmin/Resources/Public/Js')
- 	.sass('typo3conf/ext/play/Resources/Public/Sass/application.scss', 'fileadmin/Resources/Public/Css')
+ 	.sass('typo3conf/ext/play/Resources/Public/Sass/shot/' + shot + '.scss', 'fileadmin/Resources/Public/Css/shot-' + shot + '.css')
 	.webpackConfig({
 		plugins: [
 			new spritemap({
