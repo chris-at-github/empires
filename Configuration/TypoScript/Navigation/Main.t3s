@@ -4,6 +4,4 @@ navigation.main {
 	// Create a menu out of the pages specifically listed under special.value
 	special = directory
 	special.value = {$navigation.main}
-
-	1.wrap = <nav class="navigation navigation-horizontal"><ul> | </ul></nav>
 }

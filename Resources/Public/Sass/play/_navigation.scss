@@ -3,8 +3,6 @@
 .navigation {
 	ul {
 		@include list-unstyled();
-		display: flex;
-		flex-wrap: wrap;
 	}
 
 	a {
@@ -19,25 +17,13 @@
 // Horizontal
 .navigation-horizontal {
 	ul {
+		display: flex;
+		flex-wrap: wrap;
 		margin-left: -10px;
 		margin-right: -10px;
 	}
 
 	a {
-		padding: 5px 10px;
-	}
-}
-
-@include media-breakpoint-up(lg) {
-	.navigation-horizontal {
-		ul {
-			margin-left: -20px;
-			margin-right: -20px;
-		}
-
-		a {
-			padding-left: 20px;
-			padding-right: 20px;
-		}
+		padding: 0 10px;
 	}
 }

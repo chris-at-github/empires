@@ -1,9 +1,9 @@
-block.contentHeader = CONTENT
-block.contentHeader {
+block.content = CONTENT
+block.content {
 	table = tt_content
 	select {
 		orderBy = sorting
-		where = colPos = 10
+		where = colPos = 0
 		languageField = sys_language_uid
 	}
 }

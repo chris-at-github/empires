@@ -1,22 +1,3 @@
-# mod.wizards.newContentElement.wizardItems.common {
-#    elements {
-#       datamintsplay_pageheader {
-#          iconIdentifier = your-icon-identifier
-#          title = LLL:EXT:datamints_play/Resources/Private/Language/locallang_tca.xlf:pageheader.title
-#          description = LLL:EXT:datamints_play/Resources/Private/Language/locallang_tca.xlf:pageheader.description
-#          tt_content_defValues {
-#             CType = datamintsplay_pageheader
-#          }
-#       }
-#    }
-#    show := addToList(datamintsplay_pageheader)
-# }
-
-TCAdefaults.tt_content {
-	space_before_class = auto
-	space_after_class = auto
-}
-
 TCEFORM.tt_content {
 	space_before_class {
 		removeItems = extra-small, large, extra-large
@@ -29,12 +10,7 @@ TCEFORM.tt_content {
 	}
 }
 
-TCAdefaults.tt_content.header = Titel
-
-[Cext\Play\Condition\ContentFieldCondition CType == text]
-	TCAdefaults.tt_content.header = ContentFieldCondition:Titel
-[global]
-
-[Cext\Play\Condition\ContentFieldCondition page:uid == 13]
-	TCAdefaults.tt_content.header = ContentFieldCondition:Page:13
-[global]
+TCAdefaults.tt_content {
+	space_before_class = auto
+	space_after_class = auto
+}

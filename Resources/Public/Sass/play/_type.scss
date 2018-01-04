@@ -2,49 +2,31 @@
 // HTML
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
+	margin-top: 3rem;
 	margin-bottom: 0;
 	font-weight: $headings-font-weight;
-	font-size: 16px;
+	font-size: $font-size-base;
 	line-height: $headings-line-height;
 }
 
 h1, .h1 {
-	margin-top: 40px;
-	font-size: 32px;
-	font-weight: 300;
+	font-size: 3rem;
 }
 
 h2, .h2 {
-	margin-top: 35px;
-	font-size: 20px;
+	font-size: 2.3rem;
 }
 
 h3, .h3 {
-	margin-top: 25px;
+	font-size: 1.6rem;
 }
 
 p, ul, ol, table {
-	margin: 10px 0 0 0;
+	margin: 1rem 0 0 0;
 }
 
 b, strong {
 	font-weight: 600;
-}
-
-// Hinterlegung von Links mit einer eingefaerbten Linie unterhalb
-// @see: https://css-tricks.com/styling-underlines-web/#article-header-id-5
-// @see: https://policy.pinterest.com/de/privacy-policy
-a {
-	& {
-		background: linear-gradient(to top, $white 75%, $gray-400 75%) repeat-x 0 bottom;
-		background-size: 1px 2px;
-		text-shadow: -1px 0 $white, 1px 0 $white, 2px 0 $white;
-		transition: color 0.25s ease;
-	}
-
-	&:hover, &:focus {
-		background-image: linear-gradient(to top, $white 75%, transparent 75%);
-	}
 }
 
 ul {
@@ -56,95 +38,24 @@ ul {
 		& {
 			position: relative;
 			list-style: none;
-			padding: 0 0 0 14px;
+			padding: 0 0 0 1rem;
 		}
 
 		&:before {
 			content: '';
 			position: absolute;
-			top: 10px; left: 1px;
-			border: 2px solid $gray-500;
-		}
-
-		& + li {
-			margin-top: 10px;
+			top: 10px; left: 0;
+			border: 2px solid #000;
 		}
 	}
 }
 
 ol {
 	& {
-		padding: 0 0 0 13px;
+		padding: 0 0 0 1rem;
 	}
 
 	li {
-		padding: 0 0 0 4px;
-	}
-
-	li + li {
-		margin-top: 10px;
-	}
-}
-
-@include media-breakpoint-up(sm) {
-	h1, .h1 {
-		& {
-			font-size: 40px;
-		}
-
-		& + p {
-			margin-top: 30px;
-		}
-	}
-
-	h3, .h3 {
-		& + p {
-			margin-top: 10px;
-		}
-	}
-
-	p, ul, ol, table {
-		margin-top: 20px;
-	}
-}
-
-@include media-breakpoint-up(md) {
-	h1, .h1 {
-		font-size: 44px;
-	}
-
-	h2, .h2 {
-		margin-top: 40px;
-		font-size: 24px;
-	}
-
-	h3, .h3 {
-		font-size: 20px;
-	}
-}
-
-@include media-breakpoint-up(lg) {
-	body {
-		font-size: $font-size-lg;
-	}
-
-	h1, .h1 {
-		font-size: 56px;
-	}
-
-	h2, .h2 {
-		margin-top: 45px;
-		font-size: 30px;
-	}
-
-	h3, .h3 {
-		margin-top: 35px;
-		font-size: 22px;
-	}
-
-	ul {
-		li:before {
-			top: 11px;
-		}
+		padding: 0 0 0 0.15rem;
 	}
 }

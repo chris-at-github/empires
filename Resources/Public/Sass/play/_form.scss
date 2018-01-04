@@ -9,13 +9,12 @@ label + .form-control {
 .form-control {
 	display: block;
 	width: 100%;
-	padding: 3px;
+	padding: 0.1rem 0.3rem;
 	font-size: inherit;
-	border: 1px solid #ccc;
 
 	// Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214.
 	background-image: none;
-	background-clip: padding-box;
+	//background-clip: padding-box;
 
 	// Unstyle the caret on `<select>`s in IE10+.
 	&::-ms-expand {
@@ -25,7 +24,6 @@ label + .form-control {
 
 	&:focus {
 		outline: 0;
-		border-color: #999;
 	}
 
 	// Placeholder
@@ -33,21 +31,21 @@ label + .form-control {
 		// Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
 		opacity: 1;
 	}
-//
-//	// Disabled and read-only inputs
-//	//
-//	// HTML5 says that controls under a fieldset > legend:first-child won't be
-//	// disabled if the fieldset is disabled. Due to implementation difficulty, we
-//	// don't honor that edge case; we style them as disabled anyway.
-//	&:disabled,	&[readonly] {
-//		// iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
-//		opacity: 1;
-//	}
+
+	// Disabled and read-only inputs
+	//
+	// HTML5 says that controls under a fieldset > legend:first-child won't be
+	// disabled if the fieldset is disabled. Due to implementation difficulty, we
+	// don't honor that edge case; we style them as disabled anyway.
+	&:disabled,	&[readonly] {
+		// iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+		opacity: 1;
+	}
 }
 
 select.form-control {
 	&:not([size]):not([multiple]) {
-		height: 26px;
+		height: 31px;
 	}
 
 	&:focus::-ms-value {
