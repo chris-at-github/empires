@@ -8,8 +8,6 @@ page {
 		application = fileadmin/Resources/Public/Js/application.js
 	}
 
-	shortcutIcon = typo3conf/ext/play/Resources/Public/Icons/favicon.ico
-
 	headerData {
 
 		// Page title
@@ -26,6 +24,12 @@ page {
 
 			30 = TEXT
 			30.value < sitetitle
+		}
+
+		15 = TEXT
+		15 {
+			value = typo3conf/ext/play/Resources/Public/Icons/favicon.ico
+			wrap = <link rel="icon" href="|" type="image/x-icon">
 		}
 	}
 
