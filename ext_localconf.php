@@ -25,7 +25,7 @@ call_user_func(function() {
 			wizards.newContentElement.wizardItems.plugins {
 				elements {
 					example {
-						iconIdentifier = play-plugin-example
+						iconIdentifier = play-extension
 						title = LLL:EXT:play/Resources/Private/Language/locallang_plugin.xlf:example.name
 						description = LLL:EXT:play/Resources/Private/Language/locallang_plugin.xlf:example.description
 						tt_content_defValues {
