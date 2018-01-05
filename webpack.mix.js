@@ -31,7 +31,7 @@ if(argv.env.shot !== undefined) {
  |
  */
 mix.js('typo3conf/ext/play/Resources/Public/Js/application.js', 'fileadmin/Resources/Public/Js')
- 	.sass('typo3conf/ext/play/Resources/Public/Sass/shot/' + shot + '.scss', 'fileadmin/Resources/Public/Css/shot-' + shot + '.css')
+ 	.sass('typo3conf/ext/play/Resources/Public/Sass/shot/' + shot + '.scss', 'fileadmin/Resources/Public/Css/' + shot + '/application.css')
 	.webpackConfig({
 		plugins: [
 			new spritemap({
