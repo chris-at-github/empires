@@ -15,10 +15,10 @@ var spritemap = require('svg-spritemap-webpack-plugin');
 
 // Shot
 // @see: https://github.com/JeffreyWay/laravel-mix/issues/1086
-var shot = null
-if(argv.env.shot !== undefined) {
-	shot = argv.env.shot;
-}
+// var shot = null
+// if(argv.env.shot !== undefined) {
+// 	shot = argv.env.shot;
+// }
 
 /*
  |--------------------------------------------------------------------------
@@ -30,8 +30,20 @@ if(argv.env.shot !== undefined) {
  | file for the application as well as bundling up all the JS files.
  |
  */
+// mix.js('typo3conf/ext/play/Resources/Public/Js/application.js', 'fileadmin/Resources/Public/Js')
+//  	.sass('typo3conf/ext/play/Resources/Public/Sass/shot/' + shot + '.scss', 'fileadmin/Resources/Public/Css/' + shot + '/application.css')
+// 	.webpackConfig({
+// 		plugins: [
+// 			new spritemap({
+// 				src: 'typo3conf/ext/play/Resources/Public/Svg/Sprite/*.svg',
+// 				filename: 'fileadmin/Resources/Public/Svg/spritemap.svg',
+// 				svgo: false
+// 			})
+// 		]
+// 	});;
+
 mix.js('typo3conf/ext/play/Resources/Public/Js/application.js', 'fileadmin/Resources/Public/Js')
- 	.sass('typo3conf/ext/play/Resources/Public/Sass/shot/' + shot + '.scss', 'fileadmin/Resources/Public/Css/' + shot + '/application.css')
+ 	.sass('typo3conf/ext/play/Resources/Public/Sass/application.scss', 'fileadmin/Resources/Public/Css/application.css')
 	.webpackConfig({
 		plugins: [
 			new spritemap({
@@ -40,4 +52,4 @@ mix.js('typo3conf/ext/play/Resources/Public/Js/application.js', 'fileadmin/Resou
 				svgo: false
 			})
 		]
-	});;
+	});
