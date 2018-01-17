@@ -9,9 +9,9 @@ var spritemap = require('svg-spritemap-webpack-plugin');
 
 // Autoload jQuery
 // @see: https://github.com/JeffreyWay/laravel-mix/blob/master/docs/autoloading.md
-// mix.autoload({
-// 	jquery: ['$', 'window.jQuery']
-// });
+mix.autoload({
+	jquery: ['$', 'window.jQuery']
+});
 
 // Shot
 // @see: https://github.com/JeffreyWay/laravel-mix/issues/1086
