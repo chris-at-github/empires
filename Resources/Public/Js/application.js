@@ -22,3 +22,11 @@ $('#next').on('click', function() {
 		slider.slick('slickNext');
 	}, 1000);
 });
+
+slider.on('init', function(event, slick) {
+	console.log(slider.find('.slick-active'));
+});
+
+slider.on('afterChange', function(event, slick, currentSlide, nextSlide) {
+	slider.find('.slick-active').addClass('slick-slide-animate-in');
+});
