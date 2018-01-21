@@ -1,0 +1,13 @@
+tt_content {
+	play_example =< lib.contentElement
+	play_example {
+		templateName = Example.html
+
+		dataProcessing {
+			10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+			10 {
+				references.fieldName = image
+			}
+		}
+	}
+}

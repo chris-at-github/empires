@@ -14,3 +14,19 @@ TCAdefaults.tt_content {
 	space_before_class = auto
 	space_after_class = auto
 }
+
+mod.wizards.newContentElement.wizardItems.common {
+	elements {
+		play_example {
+			iconIdentifier = play-extension
+			title = Play Example
+			description = Play Example Description
+			tt_content_defValues {
+				CType = play_example
+			}
+		}
+	}
+
+
+	show := addToList(play_example)
+}
