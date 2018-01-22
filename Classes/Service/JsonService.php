@@ -21,6 +21,8 @@ class JsonService {
 			$value = $this->toArray($value, $options);
 		}
 
+//		DebuggerUtility::var_dump($value);
+
 		return json_encode($value);
 	}
 
@@ -33,20 +35,24 @@ class JsonService {
 	 */
 	public function toArray($value, $options = []) {
 		if($value instanceof \TYPO3\CMS\Extbase\DomainObject\AbstractEntity) {
-			$value = $this->domainObjectToArray($value, $options);
+			$value = $this->extbaseObjectToArray($value, $options);
+		}
+
+		if($value instanceof \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult) {
+			$value = $this->extbaseCollectionToArray($value, $options);
 		}
 
 		return $value;
 	}
 
 	/**
-	 * toJson -> DomainObject
+	 * toJson -> ExtbaseObject
 	 *
 	 * @param \TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject $object
 	 * @param array $options
 	 * @return array
 	 */
-	public function domainObjectToArray(\TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject $object, $options) {
+	public function extbaseObjectToArray(\TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject $object, $options) {
 		$data = [];
 		$properties = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getGettablePropertyNames($object);
 
@@ -58,7 +64,7 @@ class JsonService {
 
 					if($propertyValue instanceof \TYPO3\CMS\Extbase\DomainObject\AbstractEntity) {
 						if(isset($options[$propertyName]) === true && gettype($options[$propertyName]) === 'array') {
-							$propertyValue = $this->domainObjectToArray($propertyValue, $options[$propertyName]);
+							$propertyValue = $this->extbaseObjectToArray($propertyValue, $options[$propertyName]);
 
 						} else {
 							$propertyValue = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($propertyValue, 'uid');
@@ -67,6 +73,27 @@ class JsonService {
 				}
 
 				$data[$propertyName] = $propertyValue;
+			}
+		}
+
+		return $data;
+	}
+
+	/**
+	 * toJson -> ExtbaseCollection
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $object
+	 * @param array $options
+	 * @return array
+	 */
+	public function extbaseCollectionToArray(\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $collection, $options) {
+		$data = [];
+
+		if(empty($options) === true) {
+			foreach($collection as $object) {
+				if($object instanceof \TYPO3\CMS\Extbase\DomainObject\AbstractEntity) {
+					$data[] = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($object, 'uid');
+				}
 			}
 		}
 
