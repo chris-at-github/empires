@@ -21,8 +21,6 @@ class JsonService {
 			$value = $this->toArray($value, $options);
 		}
 
-//		DebuggerUtility::var_dump($value);
-
 		return json_encode($value);
 	}
 
@@ -60,7 +58,7 @@ class JsonService {
 
 					if($propertyValue instanceof \TYPO3\CMS\Extbase\DomainObject\AbstractEntity) {
 						if(isset($options[$propertyName]) === true && gettype($options[$propertyName]) === 'array') {
-							$propertyValue = $this->toArray($propertyValue, $options[$propertyName]);
+							$propertyValue = $this->domainObjectToArray($propertyValue, $options[$propertyName]);
 
 						} else {
 							$propertyValue = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($propertyValue, 'uid');
@@ -70,20 +68,6 @@ class JsonService {
 
 				$data[$propertyName] = $propertyValue;
 			}
-//			if(isset($configuration['_only']) && is_array($configuration['_only']) && !in_array($propertyName, $configuration['_only'])) {
-//				continue;
-//			}
-//			if(isset($configuration['_exclude']) && is_array($configuration['_exclude']) && in_array($propertyName, $configuration['_exclude'])) {
-//				continue;
-//			}
-//
-//			$propertyValue = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($object, $propertyName);
-//
-//			if(!is_array($propertyValue) && !is_object($propertyValue)) {
-//				$propertiesToRender[$propertyName] = $propertyValue;
-//			} elseif(isset($configuration['_descend']) && array_key_exists($propertyName, $configuration['_descend'])) {
-//				$propertiesToRender[$propertyName] = $this->transformValue($propertyValue, $configuration['_descend'][$propertyName]);
-//			}
 		}
 
 		return $data;

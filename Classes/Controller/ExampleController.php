@@ -40,7 +40,7 @@ class ExampleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * @return boolean
 	 */
 	public function toJsonAction(\Cext\Play\Domain\Model\Example $example) {
-		$this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson($example, ['type' => ['uid', 'title']]);
+//		echo $this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson($example, ['uid', 'state', 'type' => ['uid', 'title']]);
 
 		return true;
 	}
