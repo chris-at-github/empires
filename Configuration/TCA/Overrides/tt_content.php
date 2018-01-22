@@ -5,7 +5,8 @@
     array(
        'Play Example',
        'play_example',
-       'EXT:datamints_play/Resources/Public/Icons/play.svg'
+			'play-extension'
+
     ),
     'CType',
     'datamints_play'
