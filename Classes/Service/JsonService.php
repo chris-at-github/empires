@@ -21,7 +21,7 @@ class JsonService {
 			$value = $this->toArray($value, $options);
 		}
 
-//		DebuggerUtility::var_dump($value);
+		DebuggerUtility::var_dump($value);
 
 		return json_encode($value);
 	}
@@ -61,14 +61,19 @@ class JsonService {
 				$propertyValue = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($object, $propertyName);
 
 				if(gettype($propertyValue) === 'array' || gettype($propertyValue) === 'object') {
+					if($propertyValue instanceof \TYPO3\CMS\Extbase\DomainObject\AbstractEntity || $propertyValue instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
 
-					if($propertyValue instanceof \TYPO3\CMS\Extbase\DomainObject\AbstractEntity) {
 						if(isset($options[$propertyName]) === true && gettype($options[$propertyName]) === 'array') {
+							if($propertyValue instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+								$propertyValue = $propertyValue->_loadRealInstance();
+							}
+
 							$propertyValue = $this->extbaseObjectToArray($propertyValue, $options[$propertyName]);
 
 						} else {
 							$propertyValue = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($propertyValue, 'uid');
 						}
+
 					}
 				}
 
@@ -91,8 +96,18 @@ class JsonService {
 
 		if(empty($options) === true) {
 			foreach($collection as $object) {
-				if($object instanceof \TYPO3\CMS\Extbase\DomainObject\AbstractEntity) {
+				if($object instanceof \TYPO3\CMS\Extbase\DomainObject\AbstractEntity || $object instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
 					$data[] = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($object, 'uid');
+				}
+			}
+		} else {
+			foreach($collection as $object) {
+				if($object instanceof \TYPO3\CMS\Extbase\DomainObject\AbstractEntity || $object instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+					$uid = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($object, 'uid');
+					$data[$uid] = $this->toArray($object, $options);
+
+				} else {
+					$data[] = $this->toArray($object, $options);
 				}
 			}
 		}
