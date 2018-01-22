@@ -37,10 +37,12 @@ class ExampleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * Json Example Action
 	 *
 	 * @param \Cext\Play\Domain\Model\Example $example
-	 * @return void
+	 * @return boolean
 	 */
 	public function toJsonAction(\Cext\Play\Domain\Model\Example $example) {
+		$this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson($example);
 
+		return true;
 	}
 
 //    /**
