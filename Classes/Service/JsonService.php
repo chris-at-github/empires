@@ -37,15 +37,29 @@ class JsonService {
 		$data = [];
 		$properties = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getGettablePropertyNames($object);
 
-		foreach($properties as $propertyName) {
+		foreach($properties as $propertyName => $propertyOptions) {
+
+			// keine Optionen angegeben
+			if(gettype($propertyOptions) === 'string') {
+				$propertyName = $propertyOptions;
+			}
+
 			if(empty($options) === true || in_array($propertyName, $options) === true) {
 				$propertyValue = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($object, $propertyName);
 
 				if(gettype($propertyValue) === 'array' || gettype($propertyValue) === 'object') {
 
-				} else {
-					$data[$propertyName] = $propertyValue;
+					if($propertyValue instanceof \TYPO3\CMS\Extbase\DomainObject\AbstractEntity) {
+						if(gettype($propertyOptions) === 'array') {
+							$propertyValue = $this->toJson($propertyValue, $propertyOptions);
+
+						} else {
+							$propertyValue = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($propertyValue, 'uid');
+						}
+					}
 				}
+
+				$data[$propertyName] = $propertyValue;
 			}
 //			if(isset($configuration['_only']) && is_array($configuration['_only']) && !in_array($propertyName, $configuration['_only'])) {
 //				continue;
