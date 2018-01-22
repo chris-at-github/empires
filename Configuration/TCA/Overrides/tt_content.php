@@ -46,6 +46,19 @@ $GLOBALS['TCA']['tt_content']['types']['play_example']['columnsOverrides']['imag
 			'4:3' => [
 				'title' => '4:3',
 				'value' => 4 / 3
+			],
+			'16:9' => [
+				'title' => '16:9',
+				'value' => 16 / 9
+			]
+		],
+	],
+	'mobile' => [
+		'title' => 'LLL:EXT:extkey/Resources/Private/Language/locallang_db.xlf:imageManipulation.mobile',
+		'allowedAspectRatios' => [
+			'16:9' => [
+				'title' => '16:9',
+				'value' => 16 / 9
 			]
 		]
 	]

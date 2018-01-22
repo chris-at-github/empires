@@ -3,10 +3,15 @@
 <f:section name="Main">
 
 	<div class="row">
-		<div class="col-sm-6 col-xs-12">
-			<f:image src="{files.0.uid}" treatIdAsReference="1" cropVariant="desktop" style="max-width: 100%; height: auto;" />
+		<div class="col-md-6 col-xs-12">
+			<div class="d-none d-md-block">
+				<f:image src="{files.0.uid}" treatIdAsReference="1" cropVariant="desktop" style="max-width: 100%; height: auto;" />
+			</div>
+			<div class="d-block d-md-none">
+				<f:image src="{files.0.uid}" treatIdAsReference="1" cropVariant="mobile" style="max-width: 100%; height: auto;" />
+			</div>
 		</div>
-		<div class="col-sm-6 col-xs-12">
+		<div class="col-md-6 col-xs-12">
 			<f:format.html>{data.bodytext}</f:format.html>
 		</div>
 	</div>
