@@ -38,7 +38,7 @@ class JsonService {
 		$properties = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getGettablePropertyNames($object);
 
 		foreach($properties as $propertyName) {
-			if(empty($options) === true || in_array($options[$propertyName]) === true) {
+			if(empty($options) === true || in_array($propertyName, $options) === true) {
 				$propertyValue = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($object, $propertyName);
 
 				if(gettype($propertyValue) === 'array' || gettype($propertyValue) === 'object') {
