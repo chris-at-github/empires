@@ -10,6 +10,7 @@ CREATE TABLE tx_play_domain_model_example (
 	email varchar(255) DEFAULT '' NOT NULL,
 	description varchar(255) DEFAULT '' NOT NULL,
 	state int(11) DEFAULT '0' NOT NULL,
+  date DATETIME DEFAULT '0000-00-00 00:00:00',
 	type int(11) unsigned DEFAULT '0',
   properties INT(11) UNSIGNED DEFAULT '0' NOT NULL,
 

@@ -47,6 +47,13 @@ class Example extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $state = 0;
 
 	/**
+	 * date
+	 *
+	 * @var \DateTime
+	 */
+	protected $date = null;
+
+	/**
 	 * type
 	 *
 	 * @var \Cext\Play\Domain\Model\ExampleType
@@ -155,6 +162,25 @@ class Example extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setState($state) {
 		$this->state = $state;
+	}
+
+	/**
+	 * Returns the date
+	 *
+	 * @return \DateTime $date
+	 */
+	public function getDate() {
+		return $this->date;
+	}
+
+	/**
+	 * Sets the date
+	 *
+	 * @param \DateTime $date
+	 * @return void
+	 */
+	public function setDate(\DateTime $date) {
+		$this->date = $date;
 	}
 
 	/**

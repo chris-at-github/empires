@@ -18,6 +18,9 @@
 			<trans-unit id="tx_play_domain_model_example.state">
 				<source>State</source>
 			</trans-unit>
+			<trans-unit id="tx_play_domain_model_example.date">
+				<source>Date</source>
+			</trans-unit>
 			<trans-unit id="tx_play_domain_model_example.type">
 				<source>Type</source>
 			</trans-unit>
