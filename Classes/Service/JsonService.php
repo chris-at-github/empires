@@ -21,7 +21,7 @@ class JsonService {
 			$value = $this->toArray($value, $options);
 		}
 
-		DebuggerUtility::var_dump($value);
+//		DebuggerUtility::var_dump($value);
 
 		return json_encode($value);
 	}
@@ -74,6 +74,8 @@ class JsonService {
 							$propertyValue = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($propertyValue, 'uid');
 						}
 
+					} elseif($propertyValue instanceof \TYPO3\CMS\Extbase\Persistence\ObjectStorage) {
+						$propertyValue = $this->extbaseCollectionToArray($propertyValue, []);
 					}
 				}
 
@@ -87,11 +89,11 @@ class JsonService {
 	/**
 	 * toJson -> ExtbaseCollection
 	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $object
+	 * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult|\TYPO3\CMS\Extbase\Persistence\ObjectStorage $collection
 	 * @param array $options
 	 * @return array
 	 */
-	public function extbaseCollectionToArray(\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $collection, $options) {
+	public function extbaseCollectionToArray($collection, $options) {
 		$data = [];
 
 		if(empty($options) === true) {
