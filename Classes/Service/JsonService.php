@@ -21,8 +21,6 @@ class JsonService {
 			$value = $this->toArray($value, $options);
 		}
 
-//		DebuggerUtility::var_dump($value);
-
 		return json_encode($value);
 	}
 
@@ -75,7 +73,12 @@ class JsonService {
 						}
 
 					} elseif($propertyValue instanceof \TYPO3\CMS\Extbase\Persistence\ObjectStorage) {
-						$propertyValue = $this->extbaseCollectionToArray($propertyValue, []);
+						if(isset($options[$propertyName]) === true && gettype($options[$propertyName]) === 'array') {
+							$propertyValue = $this->extbaseCollectionToArray($propertyValue, $options[$propertyName]);
+
+						} else {
+							$propertyValue = $this->extbaseCollectionToArray($propertyValue, []);
+						}
 					}
 				}
 
