@@ -12,6 +12,8 @@ namespace Cext\Play\Controller;
  *
  ***/
 
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+
 /**
  * ExampleController
  */
@@ -40,8 +42,10 @@ class ExampleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * @return boolean
 	 */
 	public function toJsonAction(\Cext\Play\Domain\Model\Example $example) {
-//		echo $this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson($example, ['uid', 'state', 'type' => ['uid', 'title']]);
-		$this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson($this->exampleRepository->findAll(), ['uid', 'title', 'type' => ['uid', 'title']]);
+//		$this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson($example, ['uid', 'state', 'type' => ['uid', 'title']]);
+//		$this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson($this->exampleRepository->findAll(), ['uid', 'title', 'type' => ['uid', 'title']]);
+
+//		DebuggerUtility::var_dump($example);
 
 		return true;
 	}

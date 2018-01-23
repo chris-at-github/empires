@@ -21,11 +21,23 @@
 			<trans-unit id="tx_play_domain_model_example.type">
 				<source>Type</source>
 			</trans-unit>
+			<trans-unit id="tx_play_domain_model_example.properties">
+				<source>Properties</source>
+			</trans-unit>
 			<trans-unit id="tx_play_domain_model_exampletype">
 				<source>Example Type</source>
 			</trans-unit>
 			<trans-unit id="tx_play_domain_model_exampletype.title">
 				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_play_domain_model_exampleproperties">
+				<source>Example Properties</source>
+			</trans-unit>
+			<trans-unit id="tx_play_domain_model_exampleproperties.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_play_domain_model_exampleproperties.value">
+				<source>Value</source>
 			</trans-unit>
 		</body>
 	</file>

@@ -1,4 +1,5 @@
 <?php
+
 namespace Cext\Play\Domain\Model;
 
 /***
@@ -15,146 +16,202 @@ namespace Cext\Play\Domain\Model;
 /**
  * Example
  */
-class Example extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
-{
-    /**
-     * title
-     * 
-     * @var string
-     * @validate NotEmpty
-     */
-    protected $title = '';
+class Example extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+	/**
+	 * title
+	 *
+	 * @var string
+	 * @validate NotEmpty
+	 */
+	protected $title = '';
 
-    /**
-     * email
-     * 
-     * @var string
-     */
-    protected $email = '';
+	/**
+	 * email
+	 *
+	 * @var string
+	 */
+	protected $email = '';
 
-    /**
-     * description
-     * 
-     * @var string
-     */
-    protected $description = '';
+	/**
+	 * description
+	 *
+	 * @var string
+	 */
+	protected $description = '';
 
-    /**
-     * state
-     * 
-     * @var int
-     */
-    protected $state = 0;
+	/**
+	 * state
+	 *
+	 * @var int
+	 */
+	protected $state = 0;
 
-    /**
-     * type
-     * 
-     * @var \Cext\Play\Domain\Model\ExampleType
-     */
-    protected $type = null;
+	/**
+	 * type
+	 *
+	 * @var \Cext\Play\Domain\Model\ExampleType
+	 */
+	protected $type = null;
 
-    /**
-     * Returns the title
-     * 
-     * @return string $title
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
+	/**
+	 * properties
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Cext\Play\Domain\Model\ExampleProperties>
+	 * @cascade remove
+	 */
+	protected $properties = null;
 
-    /**
-     * Sets the title
-     * 
-     * @param string $title
-     * @return void
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-    }
+	/**
+	 * __construct
+	 */
+	public function __construct() {
+		//Do not remove the next line: It would break the functionality
+		$this->initStorageObjects();
+	}
 
-    /**
-     * Returns the email
-     * 
-     * @return string $email
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
+	/**
+	 * Initializes all ObjectStorage properties
+	 * Do not modify this method!
+	 * It will be rewritten on each save in the extension builder
+	 * You may modify the constructor of this class instead
+	 *
+	 * @return void
+	 */
+	protected function initStorageObjects() {
+		$this->properties = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+	}
 
-    /**
-     * Sets the email
-     * 
-     * @param string $email
-     * @return void
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
+	/**
+	 * Returns the title
+	 *
+	 * @return string $title
+	 */
+	public function getTitle() {
+		return $this->title;
+	}
 
-    /**
-     * Returns the description
-     * 
-     * @return string $description
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
+	/**
+	 * Sets the title
+	 *
+	 * @param string $title
+	 * @return void
+	 */
+	public function setTitle($title) {
+		$this->title = $title;
+	}
 
-    /**
-     * Sets the description
-     * 
-     * @param string $description
-     * @return void
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
+	/**
+	 * Returns the email
+	 *
+	 * @return string $email
+	 */
+	public function getEmail() {
+		return $this->email;
+	}
 
-    /**
-     * Returns the state
-     * 
-     * @return int $state
-     */
-    public function getState()
-    {
-        return $this->state;
-    }
+	/**
+	 * Sets the email
+	 *
+	 * @param string $email
+	 * @return void
+	 */
+	public function setEmail($email) {
+		$this->email = $email;
+	}
 
-    /**
-     * Sets the state
-     * 
-     * @param int $state
-     * @return void
-     */
-    public function setState($state)
-    {
-        $this->state = $state;
-    }
+	/**
+	 * Returns the description
+	 *
+	 * @return string $description
+	 */
+	public function getDescription() {
+		return $this->description;
+	}
 
-    /**
-     * Returns the type
-     * 
-     * @return \Cext\Play\Domain\Model\ExampleType $type
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
+	/**
+	 * Sets the description
+	 *
+	 * @param string $description
+	 * @return void
+	 */
+	public function setDescription($description) {
+		$this->description = $description;
+	}
 
-    /**
-     * Sets the type
-     * 
-     * @param \Cext\Play\Domain\Model\ExampleType $type
-     * @return void
-     */
-    public function setType(\Cext\Play\Domain\Model\ExampleType $type)
-    {
-        $this->type = $type;
-    }
+	/**
+	 * Returns the state
+	 *
+	 * @return int $state
+	 */
+	public function getState() {
+		return $this->state;
+	}
+
+	/**
+	 * Sets the state
+	 *
+	 * @param int $state
+	 * @return void
+	 */
+	public function setState($state) {
+		$this->state = $state;
+	}
+
+	/**
+	 * Returns the type
+	 *
+	 * @return \Cext\Play\Domain\Model\ExampleType $type
+	 */
+	public function getType() {
+		return $this->type;
+	}
+
+	/**
+	 * Sets the type
+	 *
+	 * @param \Cext\Play\Domain\Model\ExampleType $type
+	 * @return void
+	 */
+	public function setType(\Cext\Play\Domain\Model\ExampleType $type) {
+		$this->type = $type;
+	}
+
+	/**
+	 * Adds a ExampleProperties
+	 *
+	 * @param \Cext\Play\Domain\Model\ExampleProperties $property
+	 * @return void
+	 */
+	public function addProperty(\Cext\Play\Domain\Model\ExampleProperties $property) {
+		$this->properties->attach($property);
+	}
+
+	/**
+	 * Removes a ExampleProperties
+	 *
+	 * @param \Cext\Play\Domain\Model\ExampleProperties $propertyToRemove The ExampleProperties to be removed
+	 * @return void
+	 */
+	public function removeProperty(\Cext\Play\Domain\Model\ExampleProperties $propertyToRemove) {
+		$this->properties->detach($propertyToRemove);
+	}
+
+	/**
+	 * Returns the properties
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Cext\Play\Domain\Model\ExampleProperties> $properties
+	 */
+	public function getProperties() {
+		return $this->properties;
+	}
+
+	/**
+	 * Sets the properties
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Cext\Play\Domain\Model\ExampleProperties> $properties
+	 * @return void
+	 */
+	public function setProperties(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $properties) {
+		$this->properties = $properties;
+	}
 }

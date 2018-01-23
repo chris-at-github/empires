@@ -14,6 +14,7 @@ call_user_func(function() {
 
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_play_domain_model_example');
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_play_domain_model_exampletype');
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_play_domain_model_exampleproperties');
 });
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(

@@ -1,7 +1,7 @@
 <?php
 return [
 	'ctrl' => [
-		'title' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_example',
+		'title' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_exampleproperties',
 		'label' => 'title',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
@@ -17,14 +17,14 @@ return [
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		],
-		'searchFields' => 'title,email,description,state,type,properties',
-		'iconfile' => 'EXT:play/Resources/Public/Icons/tx_play_domain_model_example.gif'
+		'searchFields' => 'title,value',
+		'iconfile' => 'EXT:play/Resources/Public/Icons/tx_play_domain_model_exampleproperties.gif'
 	],
 	'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, email, description, state, type, properties',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, value',
 	],
 	'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, email, description, state, type, properties, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, value, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
 	],
 	'columns' => [
 		'sys_language_uid' => [
@@ -55,8 +55,8 @@ return [
 				'items' => [
 					['', 0],
 				],
-				'foreign_table' => 'tx_play_domain_model_example',
-				'foreign_table_where' => 'AND tx_play_domain_model_example.pid=###CURRENT_PID### AND tx_play_domain_model_example.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_play_domain_model_exampleproperties',
+				'foreign_table_where' => 'AND tx_play_domain_model_exampleproperties.pid=###CURRENT_PID### AND tx_play_domain_model_exampleproperties.sys_language_uid IN (-1,0)',
 			],
 		],
 		'l10n_diffsource' => [
@@ -118,73 +118,26 @@ return [
 
 		'title' => [
 			'exclude' => true,
-			'label' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_example.title',
-			'config' => [
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim,required'
-			],
-		],
-		'email' => [
-			'exclude' => true,
-			'label' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_example.email',
+			'label' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_exampleproperties.title',
 			'config' => [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
 			],
 		],
-		'description' => [
+		'value' => [
 			'exclude' => true,
-			'label' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_example.description',
+			'label' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_exampleproperties.value',
 			'config' => [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
 			],
 		],
-		'state' => [
-			'exclude' => true,
-			'label' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_example.state',
+
+		'example' => [
 			'config' => [
-				'type' => 'select',
-				'renderType' => 'selectSingle',
-				'items' => [
-					['-- Label --', 0],
-				],
-				'size' => 1,
-				'maxitems' => 1,
-				'eval' => ''
-			],
-		],
-		'type' => [
-			'exclude' => true,
-			'label' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_example.type',
-			'config' => [
-				'type' => 'select',
-				'renderType' => 'selectSingle',
-				'foreign_table' => 'tx_play_domain_model_exampletype',
-				'minitems' => 0,
-				'maxitems' => 1,
-			],
-		],
-		'properties' => [
-			'exclude' => true,
-			'label' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_example.properties',
-			'config' => [
-				'type' => 'inline',
-				'foreign_table' => 'tx_play_domain_model_exampleproperties',
-				'foreign_field' => 'example',
-				'foreign_sortby' => 'sorting',
-				'maxitems' => 9999,
-				'appearance' => [
-					'collapseAll' => 0,
-					'levelLinksPosition' => 'top',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationRecords' => 1,
-					'useSortable' => 1,
-					'showAllLocalizationLink' => 1
-				],
+				'type' => 'passthrough',
 			],
 		],
 	],
