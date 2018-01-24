@@ -42,8 +42,24 @@ class ExampleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * @return boolean
 	 */
 	public function toJsonAction(\Cext\Play\Domain\Model\Example $example) {
-		$this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson($example, ['uid', 'state', 'type' => ['uid', 'title'], 'properties' => ['uid', 'title', 'value']]);
-		$this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson($this->exampleRepository->findAll(), ['uid', 'title', 'type' => ['uid', 'title'], 'properties']);
+
+		// DomainObject -> toJson
+		$this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson($example, [
+			'uid',
+			'state',
+			'type' => ['uid', 'title'],
+			'properties' => ['uid', 'title', 'value'],
+			'date'
+		]);
+
+		// QueryResult|ObjectStorage -> toJson
+		$this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson($this->exampleRepository->findAll(), [
+			'uid',
+			'title',
+			'type' => ['uid', 'title'],
+			'properties',
+			'date'
+		]);
 
 		return true;
 	}

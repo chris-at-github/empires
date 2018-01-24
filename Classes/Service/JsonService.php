@@ -2,8 +2,6 @@
 
 namespace Cext\Play\Service;
 
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-
 /**
  * Json Service Class
  */
@@ -36,8 +34,12 @@ class JsonService {
 			$value = $this->extbaseObjectToArray($value, $options);
 		}
 
-		if($value instanceof \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult) {
+		if($value instanceof \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult || $value instanceof \TYPO3\CMS\Extbase\Persistence\ObjectStorage) {
 			$value = $this->extbaseCollectionToArray($value, $options);
+		}
+
+		if($value instanceof \DateTime) {
+			$value = $this->datetimeToArray($value, $options);
 		}
 
 		return $value;
@@ -59,26 +61,30 @@ class JsonService {
 				$propertyValue = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($object, $propertyName);
 
 				if(gettype($propertyValue) === 'array' || gettype($propertyValue) === 'object') {
+
+					$propertyOptions = [];
+					if(isset($options[$propertyName]) === true && gettype($options[$propertyName]) === 'array') {
+						$propertyOptions = $options[$propertyName];
+					}
+
 					if($propertyValue instanceof \TYPO3\CMS\Extbase\DomainObject\AbstractEntity || $propertyValue instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
 
-						if(isset($options[$propertyName]) === true && gettype($options[$propertyName]) === 'array') {
+						if(empty($propertyOptions) === false) {
 							if($propertyValue instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
 								$propertyValue = $propertyValue->_loadRealInstance();
 							}
 
-							$propertyValue = $this->extbaseObjectToArray($propertyValue, $options[$propertyName]);
+							$propertyValue = $this->extbaseObjectToArray($propertyValue, $propertyOptions);
 
 						} else {
 							$propertyValue = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($propertyValue, 'uid');
 						}
 
 					} elseif($propertyValue instanceof \TYPO3\CMS\Extbase\Persistence\ObjectStorage) {
-						if(isset($options[$propertyName]) === true && gettype($options[$propertyName]) === 'array') {
-							$propertyValue = $this->extbaseCollectionToArray($propertyValue, $options[$propertyName]);
+						$propertyValue = $this->extbaseCollectionToArray($propertyValue, $propertyOptions);
 
-						} else {
-							$propertyValue = $this->extbaseCollectionToArray($propertyValue, []);
-						}
+					} elseif($propertyValue instanceof \DateTime) {
+						$propertyValue = $this->datetimeToArray($propertyValue, $propertyOptions);
 					}
 				}
 
@@ -118,5 +124,15 @@ class JsonService {
 		}
 
 		return $data;
+	}
+
+	/**
+	 * toJson -> DateTime
+	 * @param \DateTime $object
+	 * @param array $options
+	 * @return string
+	 */
+	public function datetimeToArray(\DateTime $object, $options) {
+		return $object->format('c');
 	}
 }
