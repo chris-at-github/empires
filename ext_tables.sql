@@ -93,6 +93,7 @@ CREATE TABLE tx_play_domain_model_exampleproperties (
 
   uid              INT(11)                          NOT NULL AUTO_INCREMENT,
   pid              INT(11) DEFAULT '0'              NOT NULL,
+  record_type      VARCHAR(255) DEFAULT ''          NOT NULL,
 
   example          INT(11) UNSIGNED DEFAULT '0'     NOT NULL,
 

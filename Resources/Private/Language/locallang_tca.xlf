@@ -36,6 +36,9 @@
 			<trans-unit id="tx_play_domain_model_exampleproperties">
 				<source>Example Properties</source>
 			</trans-unit>
+			<trans-unit id="tx_play_domain_model_exampleproperties.record_type">
+				<source>Record Type</source>
+			</trans-unit>
 			<trans-unit id="tx_play_domain_model_exampleproperties.title">
 				<source>Title</source>
 			</trans-unit>

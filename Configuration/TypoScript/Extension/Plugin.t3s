@@ -41,6 +41,32 @@ config.tx_extbase {
 					}
 				}
 			}
+
+			Cext\Play\Domain\Model\ExampleProperties {
+				mapping {
+					tableName = tx_play_domain_model_exampleproperties
+					recordType = \Cext\Play\Domain\Model\ExampleProperties
+				}
+
+				subclasses {
+					\Cext\Play\Domain\Model\DefaultExampleProperty = \Cext\Play\Domain\Model\DefaultExampleProperty
+					\Cext\Play\Domain\Model\UrlExampleProperty = \Cext\Play\Domain\Model\UrlExampleProperty
+				}
+			}
+
+			Cext\Play\Domain\Model\DefaultExampleProperty {
+				mapping {
+					tableName = tx_play_domain_model_exampleproperties
+					recordType = \Cext\Play\Domain\Model\DefaultExampleProperty
+				}
+			}
+
+			Cext\Play\Domain\Model\UrlExampleProperty {
+				mapping {
+					tableName = tx_play_domain_model_exampleproperties
+					recordType = \Cext\Play\Domain\Model\UrlExampleProperty
+				}
+			}
 		}
 	}
 }

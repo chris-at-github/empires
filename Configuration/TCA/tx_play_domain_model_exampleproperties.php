@@ -3,6 +3,7 @@ return [
 	'ctrl' => [
 		'title' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_exampleproperties',
 		'label' => 'title',
+		'type' => 'record_type',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -24,7 +25,9 @@ return [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, value',
 	],
 	'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, value, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'0' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, record_type, title, value, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'\Cext\Play\Domain\Model\DefaultExampleProperty' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, record_type, title, value, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'\Cext\Play\Domain\Model\UrlExampleProperty' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, record_type, title, value, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
 	],
 	'columns' => [
 		'sys_language_uid' => [
@@ -116,6 +119,19 @@ return [
 			],
 		],
 
+		'record_type' => [
+			'label' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_exampleproperties.record_type',
+			'config' => [
+				'type' => 'select',
+				'items' => [
+					['', 0],
+					['Default', '\Cext\Play\Domain\Model\DefaultExampleProperty'],
+					['Url', '\Cext\Play\Domain\Model\UrlExampleProperty']
+				],
+				'default' => '\Cext\Play\Domain\Model\DefaultExampleProperty'
+			],
+		],
+
 		'title' => [
 			'exclude' => true,
 			'label' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_exampleproperties.title',
@@ -125,6 +141,7 @@ return [
 				'eval' => 'trim'
 			],
 		],
+
 		'value' => [
 			'exclude' => true,
 			'label' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_exampleproperties.value',
