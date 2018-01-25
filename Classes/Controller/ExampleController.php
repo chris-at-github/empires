@@ -64,6 +64,24 @@ class ExampleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 		return true;
 	}
 
+	/**
+	 * Auslesen von Kindklassen anhand des RecordType
+	 * @see: https://github.com/chris-at-github/typo3-play/issues/15
+	 * @see: https://docs.typo3.org/typo3cms/ExtbaseFluidBook/6-Persistence/5-modeling-the-class-hierarchy.html
+	 *
+	 * @param \Cext\Play\Domain\Model\Example $example
+	 * @return void
+	 */
+	public function recordTypeAction(\Cext\Play\Domain\Model\Example $example) {
+		$properties = $this->objectManager->get(\Cext\Play\Domain\Repository\ExamplePropertiesRepository::class)->findAll([
+			'example' => 1
+		]);
+
+		$this->view->assign('properties', $properties);
+
+		DebuggerUtility::var_dump($properties);
+	}
+
 //    /**
 //     * action show
 //     *

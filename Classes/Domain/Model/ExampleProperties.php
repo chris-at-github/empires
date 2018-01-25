@@ -32,6 +32,13 @@ class ExampleProperties extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $value = '';
 
 	/**
+	 * example
+	 *
+	 * @var \Cext\Play\Domain\Model\Example
+	 */
+	protected $example = null;
+
+	/**
 	 * Returns the title
 	 *
 	 * @return string $title

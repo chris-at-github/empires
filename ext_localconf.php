@@ -9,7 +9,7 @@ call_user_func(function() {
 		'Cext.Play',
 		'Example',
 		[
-			'Example' => 'listing, toJson, show, new, create, edit, update, delete',
+			'Example' => 'listing, toJson, recordType',
 			'ExampleType' => 'list, show'
 		],
 		// non-cacheable actions
