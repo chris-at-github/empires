@@ -73,13 +73,7 @@ class ExampleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * @return void
 	 */
 	public function recordTypeAction(\Cext\Play\Domain\Model\Example $example) {
-		$properties = $this->objectManager->get(\Cext\Play\Domain\Repository\ExamplePropertiesRepository::class)->findAll([
-			'example' => 1
-		]);
-
-		$this->view->assign('properties', $properties);
-
-		DebuggerUtility::var_dump($properties);
+		$this->view->assign('properties', $example->getProperties());
 	}
 
 //    /**
