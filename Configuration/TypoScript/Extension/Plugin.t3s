@@ -7,26 +7,13 @@ plugin.tx_play {
 
 	persistence {
 		storagePid = {$plugin.tx_play.persistence.storagePid}
-	}
 
-	mvc {
-		callDefaultActionIfActionCantBeResolved = 1
-	}
-
-	settings {
-		svg {
-			path = {$plugin.tx_play.settings.svg.path}
-		}
-	}
-}
-
-config.tx_extbase {
-	persistence {
 		classes {
 			Cext\Play\Domain\Model\Page {
 				mapping {
 					tableName = pages
 					columns {
+
 
 						// Map existing fields.
 						uid.mapOnProperty = uid
@@ -37,7 +24,7 @@ config.tx_extbase {
 						crdate.mapOnProperty = createDate
 
 						// Map new fields to be able to use shorter names.
-#						tx_datamints_article_keyword.mapOnProperty = keyword
+						#						tx_datamints_article_keyword.mapOnProperty = keyword
 					}
 				}
 			}
@@ -49,8 +36,8 @@ config.tx_extbase {
 				}
 
 				subclasses {
-					\Cext\Play\Domain\Model\DefaultExampleProperty = \Cext\Play\Domain\Model\DefaultExampleProperty
-					\Cext\Play\Domain\Model\UrlExampleProperty = \Cext\Play\Domain\Model\UrlExampleProperty
+					Cext\Play\Domain\Model\DefaultExampleProperty = Cext\Play\Domain\Model\DefaultExampleProperty
+					Cext\Play\Domain\Model\UrlExampleProperty = Cext\Play\Domain\Model\UrlExampleProperty
 				}
 			}
 
@@ -67,6 +54,16 @@ config.tx_extbase {
 					recordType = \Cext\Play\Domain\Model\UrlExampleProperty
 				}
 			}
+		}
+	}
+
+	mvc {
+		callDefaultActionIfActionCantBeResolved = 1
+	}
+
+	settings {
+		svg {
+			path = {$plugin.tx_play.settings.svg.path}
 		}
 	}
 }
