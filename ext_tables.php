@@ -23,5 +23,5 @@ call_user_func(function() {
 	'LLL:EXT:play/Resources/Private/Language/locallang_db.xlf:plugin.pages.title'
 );
 
-$TCA['tt_content']['types']['list']['subtypes_addlist']['play_pages'] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('play_pages', 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/PluginPages.xml');
+$TCA['tt_content']['types']['list']['subtypes_addlist']['play_example'] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('play_example', 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/PluginExample.xml');
