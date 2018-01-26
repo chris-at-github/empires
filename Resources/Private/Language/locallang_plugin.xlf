@@ -12,7 +12,7 @@
 				<source>Example</source>
 			</trans-unit>
 			<trans-unit id="example.description">
-				<source></source>
+				<source>Description of example plugin</source>
 			</trans-unit>
 		</body>
 	</file>
