@@ -30,7 +30,7 @@
 						</TCEforms>
 					</switchableControllerActions>
 
-					<settings.example>
+					<settings.example.uid>
 						<TCEforms>
 							<label>Example</label>
 							<config>
@@ -53,7 +53,7 @@
 								</OR>
 							</displayCond>
 						</TCEforms>
-					</settings.example>
+					</settings.example.uid>
 				</el>
 			</ROOT>
 		</sDEF>

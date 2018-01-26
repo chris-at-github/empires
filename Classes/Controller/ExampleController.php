@@ -41,7 +41,11 @@ class ExampleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * @param \Cext\Play\Domain\Model\Example $example
 	 * @return boolean
 	 */
-	public function toJsonAction(\Cext\Play\Domain\Model\Example $example) {
+	public function toJsonAction(\Cext\Play\Domain\Model\Example $example = null) {
+
+		if($example === null && empty($this->settings['example']['uid']) === false) {
+			$example = $this->exampleRepository->findByUid((int) $this->settings['example']['uid']);
+		}
 
 		// DomainObject -> toJson
 		$this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson($example, [
@@ -72,7 +76,12 @@ class ExampleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * @param \Cext\Play\Domain\Model\Example $example
 	 * @return void
 	 */
-	public function recordTypeAction(\Cext\Play\Domain\Model\Example $example) {
+	public function recordTypeAction(\Cext\Play\Domain\Model\Example $example = null) {
+
+		if($example === null && empty($this->settings['example']['uid']) === false) {
+			$example = $this->exampleRepository->findByUid((int) $this->settings['example']['uid']);
+		}
+
 		$this->view->assign('properties', $example->getProperties());
 	}
 

@@ -26,7 +26,7 @@ call_user_func(function() {
 				elements {
 					example {
 						iconIdentifier = play-extension
-						title = LLL:EXT:play/Resources/Private/Language/locallang_plugin.xlf:example.name
+						title = LLL:EXT:play/Resources/Private/Language/locallang_plugin.xlf:example.title
 						description = LLL:EXT:play/Resources/Private/Language/locallang_plugin.xlf:example.description
 						tt_content_defValues {
 							CType = list
