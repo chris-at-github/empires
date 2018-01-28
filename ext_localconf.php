@@ -12,11 +12,23 @@ call_user_func(function() {
 			'Example' => 'listing, toJson, recordType',
 			'ExampleType' => 'list, show'
 		],
+
 		// non-cacheable actions
 		[
 			'Example' => 'create, update, delete',
 			'ExampleType' => ''
 		]
+	);
+
+	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+		'Cext.Play',
+		'Vue',
+		[
+			'Vue' => 'listing',
+		],
+
+		// non-cacheable actions
+		[]
 	);
 
 	// wizards
@@ -33,6 +45,16 @@ call_user_func(function() {
 							list_type = play_example
 						}
 					}
+					
+					vue {
+						iconIdentifier = play-extension
+						title = LLL:EXT:play/Resources/Private/Language/locallang_plugin.xlf:vue.title
+						description = LLL:EXT:play/Resources/Private/Language/locallang_plugin.xlf:vue.description
+						tt_content_defValues {
+							CType = list
+							list_type = play_vue
+						}
+					}					
 				}
 				show = *
 			}

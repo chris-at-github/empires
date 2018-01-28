@@ -14,6 +14,13 @@
 			<trans-unit id="example.description">
 				<source>Description of example plugin</source>
 			</trans-unit>
+
+			<trans-unit id="vue.title">
+				<source>Vue</source>
+			</trans-unit>
+			<trans-unit id="vue.description">
+				<source>Vue Playground</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
