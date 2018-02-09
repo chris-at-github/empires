@@ -4,23 +4,23 @@
 
 		<ul>
 			<li v-for="object in objects">
-				<play-object
+				<vue-object
 					v-bind:object="object"
 					v-bind:key="object.id">
-				</play-object>
+				</vue-object>
 			</li>
 		</ul>
 	</div>
 </template>
 
 <script>
-	import PlayObject from './PlayObject';
+	import VueObject from './VueObject';
 
 	export default {
 
 		// @see: https://vuejs.org/v2/guide/components.html#Local-Registration
 		components: {
-			'play-object': PlayObject
+			'vue-object': VueObject
 		},
 
 		props: ['header'],
