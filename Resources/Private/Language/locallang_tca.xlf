@@ -45,6 +45,13 @@
 			<trans-unit id="tx_play_domain_model_exampleproperties.value">
 				<source>Value</source>
 			</trans-unit>
+
+			<trans-unit id="tx_play_domain_model_vueobject">
+				<source>Vue Object</source>
+			</trans-unit>
+			<trans-unit id="tx_play_domain_model_vueobject.title">
+				<source>Title</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
