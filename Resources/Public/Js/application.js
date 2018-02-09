@@ -1,6 +1,6 @@
 var Vue = require('vue');
 
-Vue.component('object-listing', require('./Components/ObjectListing'));
+Vue.component('play-object-listing', require('./Components/PlayObjectListing'));
 
 const application = new Vue({
 	el: '#vue-application'

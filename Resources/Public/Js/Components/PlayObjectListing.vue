@@ -4,14 +4,25 @@
 
 		<ul>
 			<li v-for="object in objects">
-				{{object.title}} [{{object.id}}]
+				<play-object
+					v-bind:object="object"
+					v-bind:key="object.id">
+				</play-object>
 			</li>
 		</ul>
 	</div>
 </template>
 
 <script>
+	import PlayObject from './PlayObject';
+
 	export default {
+
+		// @see: https://vuejs.org/v2/guide/components.html#Local-Registration
+		components: {
+			'play-object': PlayObject
+		},
+
 		props: ['header'],
 
 		data: function() {
