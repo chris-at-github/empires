@@ -25,5 +25,11 @@ class VueController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 	 * @return void
 	 */
 	public function listingAction() {
+		$this->view->assign('vueObjects', $this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson(
+			$this->objectManager->get(\Cext\Play\Domain\Repository\VueObjectRepository::class)->findAll(), [
+				'uid',
+				'title'
+			]
+		));
 	}
 }
