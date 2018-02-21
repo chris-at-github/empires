@@ -35,7 +35,7 @@ call_user_func(function() {
 		'Cext.Play',
 		'Api',
 		[
-			'Api' => 'properties',
+			'ExampleApi' => 'get',
 		],
 
 		// non-cacheable actions

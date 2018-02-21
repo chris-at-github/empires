@@ -12,3 +12,4 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/Page/Page.t3s">
 
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/Extension/Plugin.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/Extension/Api.t3s">
