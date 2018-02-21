@@ -17,6 +17,11 @@ $('.api-call--get').each(function() {
 			container
 				.css('color', '#62a60a')
 				.text('\Cext\Play\Domain\Model\Example [' + response.uid + ']');
+		},
+		error: function(error) {
+			container
+				.css('color', '#f00')
+				.text(error.status + ': ' + error.statusText);
 		}
 	});
 });

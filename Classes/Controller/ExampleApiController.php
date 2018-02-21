@@ -118,13 +118,20 @@ class ExampleApiController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
 	 * Properties Action
 	 *
 	 * @param \Cext\Play\Domain\Model\Example $example
-	 * @return void
+	 * @return string
+	 * @throws \TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException
 	 */
 	public function getAction(\Cext\Play\Domain\Model\Example $example = null) {
 
+		// @todo: in Methode auslagern
+		// @todo: \TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException abfangen und auswerten
+		if($example === null) {
+			$response = $this->controllerContext->getResponse();
+			$response->setStatus(404, '\Cext\Play\Domain\Model\Example [' . $this->request->getArgument('example') . '] not found');
+		}
+
 		// DomainObject -> toJson
-		// @todo: statt echo sollten die Variablen ueber eine Set-Methode gesammelt werden und nach dem setzen der Header ausgegeben werden
-		echo $this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson($example, [
+		return $this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson($example, [
 			'uid',
 			'state',
 			'type' => ['uid', 'title'],
