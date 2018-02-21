@@ -18,6 +18,12 @@ call_user_func(function() {
 		'Vue'
 	);
 
+	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+		'Cext.Play',
+		'Api',
+		'Api'
+	);
+
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_play_domain_model_example');
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_play_domain_model_exampletype');
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_play_domain_model_exampleproperties');

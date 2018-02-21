@@ -25,6 +25,10 @@
 										<numIndex index="0">Example::RecordType</numIndex>
 										<numIndex index="1">Example->recordType</numIndex>
 									</numIndex>
+									<numIndex index="3" type="array">
+										<numIndex index="0">Example::ApiCall</numIndex>
+										<numIndex index="1">Example->apiCall</numIndex>
+									</numIndex>
 								</items>
 							</config>
 						</TCEforms>
@@ -50,6 +54,7 @@
 								<OR>
 									<numIndex index="0"><![CDATA[FIELD:switchableControllerActions:=:Example->toJson]]></numIndex>
 									<numIndex index="1"><![CDATA[FIELD:switchableControllerActions:=:Example->recordType]]></numIndex>
+									<numIndex index="2"><![CDATA[FIELD:switchableControllerActions:=:Example->apiCall]]></numIndex>
 								</OR>
 							</displayCond>
 						</TCEforms>

@@ -85,6 +85,21 @@ class ExampleController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 		$this->view->assign('properties', $example->getProperties());
 	}
 
+	/**
+	 * Aufruf des Api Controllers / Plugins
+	 *
+	 * @param \Cext\Play\Domain\Model\Example $example
+	 * @return void
+	 */
+	public function apiCallAction(\Cext\Play\Domain\Model\Example $example = null) {
+
+		if($example === null && empty($this->settings['example']['uid']) === false) {
+			$example = $this->exampleRepository->findByUid((int) $this->settings['example']['uid']);
+		}
+
+		$this->view->assign('example', $example);
+	}
+
 //    /**
 //     * action show
 //     *

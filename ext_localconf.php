@@ -9,7 +9,7 @@ call_user_func(function() {
 		'Cext.Play',
 		'Example',
 		[
-			'Example' => 'listing, toJson, recordType',
+			'Example' => 'listing, toJson, recordType, apiCall',
 			'ExampleType' => 'list, show'
 		],
 
@@ -25,6 +25,17 @@ call_user_func(function() {
 		'Vue',
 		[
 			'Vue' => 'listing',
+		],
+
+		// non-cacheable actions
+		[]
+	);
+
+	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+		'Cext.Play',
+		'Api',
+		[
+			'Api' => 'properties',
 		],
 
 		// non-cacheable actions
