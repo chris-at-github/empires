@@ -35,11 +35,13 @@ call_user_func(function() {
 		'Cext.Play',
 		'Api',
 		[
-			'ExampleApi' => 'get',
+			'ExampleApi' => 'get, set',
 		],
 
 		// non-cacheable actions
-		[]
+		[
+			'ExampleApi' => 'set',
+		]
 	);
 
 	// wizards
