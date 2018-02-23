@@ -1,4 +1,8 @@
 plugin.tx_play {
+	objects {
+		TYPO3\CMS\Extbase\Validation\Validator\GenericObjectValidator.className = Cext\Play\Validation\Validator\GenericObjectValidator
+	}
+
 	view {
 		layoutRootPaths.0 = EXT:play/Resources/Private/Extensions/Play/Layouts/
 		templateRootPaths.0 = EXT:play/Resources/Private/Extensions/Play/Templates/
@@ -66,8 +70,4 @@ plugin.tx_play {
 			path = {$plugin.tx_play.settings.svg.path}
 		}
 	}
-}
-
-config.tx_extbase.objects {
-	TYPO3\CMS\Extbase\Validation\Validator\GenericObjectValidator.className = Cext\Play\Validation\Validator\GenericObjectValidator
 }

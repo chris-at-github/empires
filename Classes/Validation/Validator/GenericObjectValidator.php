@@ -29,6 +29,8 @@ class GenericObjectValidator extends \TYPO3\CMS\Extbase\Validation\Validator\Gen
 	 * @api
 	 */
 	public function validate($value) {
+
+		// @see: https://stackoverflow.com/questions/48587303/extbase-validation-skipped-on-nested-form-with-circular-relationship
 		if(($this->result instanceof \TYPO3\CMS\Extbase\Error\Result) === false) {
 			$this->result = new \TYPO3\CMS\Extbase\Error\Result();
 		}
