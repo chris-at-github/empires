@@ -67,3 +67,7 @@ plugin.tx_play {
 		}
 	}
 }
+
+config.tx_extbase.objects {
+	TYPO3\CMS\Extbase\Validation\Validator\GenericObjectValidator.className = Cext\Play\Validation\Validator\GenericObjectValidator
+}
