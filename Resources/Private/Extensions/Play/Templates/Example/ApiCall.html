@@ -6,6 +6,10 @@
 		<f:comment>
 			<div class="api-call--get" data-api-url="{f:uri.action(pageUid: 1, pageType: 1504532915, pluginName: 'Api', controller: 'ExampleApi', action: 'get', arguments: {example: example})}"></div>
 			<div class="api-call--get" data-api-url="{f:uri.action(pageUid: 1, pageType: 1504532915, pluginName: 'Api', controller: 'ExampleApi', action: 'get', arguments: {example: 99})}"></div>
+
+			<f:form pageUid="1" pageType="1504532915" pluginName="Api" controller="ExampleApi" action="set" name="example" object="{example}">
+				<f:form.textfield class="api-call--data" property="title" />
+			</f:form>
 		</f:comment>
 
 		<div
@@ -15,6 +19,5 @@
 			<input type="text" class="api-call--data" name="tx_play_api[example][__identity]" value="{example.uid}" />
 			<input type="text" class="api-call--data" name="tx_play_api[example][title]" value="Example Api EA #01" />
 		</div>
-
 	</f:section>
 </html>

@@ -111,7 +111,29 @@ class ExampleApiController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
 		$this->controllerContext = $this->buildControllerContext();
 		$this->callActionMethod();
 
-		$this->setResponseHeader();
+//		$this->setResponseHeader();
+	}
+
+	/**
+	 * A special action which is called if the originally intended action could
+	 * not be called, for example if the arguments were not valid.
+	 *
+	 * The default implementation sets a flash message, request errors and forwards back
+	 * to the originating action. This is suitable for most actions dealing with form input.
+	 *
+	 * We clear the page cache by default on an error as well, as we need to make sure the
+	 * data is re-evaluated when the user changes something.
+	 *
+	 * @return string
+	 * @api
+	 */
+	protected function errorAction() {
+		DebuggerUtility::var_dump($this->arguments->getValidationResults());
+//		$this->clearCacheOnError();
+//		$this->addErrorFlashMessage();
+//		$this->forwardToReferringRequest();
+//
+		return false;
 	}
 
 	/**
@@ -162,9 +184,8 @@ class ExampleApiController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
 	 *
 	 * @param \Cext\Play\Domain\Model\Example $example
 	 * @return string
-	 * @throws \TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException
 	 */
-	public function setAction(\Cext\Play\Domain\Model\Example $example = null) {
+	public function setAction(\Cext\Play\Domain\Model\Example $example) {
 
 //		// @todo: in Methode auslagern
 //		// @todo: \TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException abfangen und auswerten
@@ -172,14 +193,14 @@ class ExampleApiController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
 //			$response = $this->controllerContext->getResponse();
 //			$response->setStatus(404, '\Cext\Play\Domain\Model\Example [' . $this->request->getArgument('example') . '] not found');
 //		}
-//
-		// DomainObject -> toJson
-		return $this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson($example, [
-			'uid',
-			'state',
-			'type' => ['uid', 'title'],
-			'properties' => ['uid', 'title', 'value'],
-			'date'
-		]);
+
+//		// DomainObject -> toJson
+//		return $this->objectManager->get(\Cext\Play\Service\JsonService::class)->toJson($example, [
+//			'uid',
+//			'state',
+//			'type' => ['uid', 'title'],
+//			'properties' => ['uid', 'title', 'value'],
+//			'date'
+//		]);
 	}
 }

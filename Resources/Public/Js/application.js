@@ -38,6 +38,9 @@ $('.api-call--set').each(function() {
 		data[name] = value;
 	});
 
+	// Fehler provozieren
+	data['tx_play_api[example][title]'] = '';
+
 	$.ajax({
 		url: url,
 		method: 'get',

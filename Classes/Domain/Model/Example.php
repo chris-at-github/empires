@@ -17,6 +17,7 @@ namespace Cext\Play\Domain\Model;
  * Example
  */
 class Example extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+
 	/**
 	 * title
 	 *
@@ -29,6 +30,7 @@ class Example extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * email
 	 *
 	 * @var string
+	 * @validate NotEmpty
 	 */
 	protected $email = '';
 
