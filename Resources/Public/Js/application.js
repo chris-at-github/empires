@@ -19,6 +19,9 @@ $('.api-call--get').each(function() {
 				.text('\Cext\Play\Domain\Model\Example [' + response.uid + ']');
 		},
 		error: function(error) {
+
+			console.log(error);
+
 			container
 				.css('color', '#f00')
 				.text(error.status + ': ' + error.statusText);

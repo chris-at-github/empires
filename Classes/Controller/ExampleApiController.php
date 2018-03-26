@@ -129,14 +129,22 @@ class ExampleApiController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
 	 */
 	protected function errorAction() {
 		DebuggerUtility::var_dump($this->arguments->getValidationResults());
-//		$this->clearCacheOnError();
-//		$this->addErrorFlashMessage();
-//		$this->forwardToReferringRequest();
-//
-		return false;
+
+		/* @var \TYPO3\CMS\Extbase\Mvc\Web\Response $response */
+		$response = $this->controllerContext->getResponse();
+
+		// @see: https://stackoverflow.com/questions/3290182/rest-http-status-codes-for-failed-validation-or-invalid-duplicate
+		$response->setStatus(400, 'Validation faild');
+		$response->setContent('{JSON ERROR STRING}');
+
+		//		$this->clearCacheOnError();
+		//		$this->addErrorFlashMessage();
+		//		$this->forwardToReferringRequest();
+		//
+		//		return $this->getFlattenedValidationErrorMessage();
 	}
 
-	/**
+ /**
 	 * Properties Action
 	 *
 	 * @param \Cext\Play\Domain\Model\Example $example
