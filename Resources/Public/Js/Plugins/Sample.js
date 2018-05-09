@@ -57,7 +57,7 @@
 		console.log('Sample::proxyMethod');
 	};
 
-	$.fn.sample = function() {
+	$.fn.sample = function() { 
 		var _ = this,
 			opt = arguments[0],
 			args = Array.prototype.slice.call(arguments, 1),
