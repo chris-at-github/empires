@@ -1,5 +1,5 @@
-require('./Plugins/Sample');
+require('./Plugins/Notification');
 
 
-$('.sample').sample({
+$('.notification').notification({
 });
