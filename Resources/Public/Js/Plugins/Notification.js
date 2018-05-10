@@ -101,16 +101,24 @@
 				trigger
 					.removeClass(_.initials.triggerClassSeen)
 					.addClass(_.initials.triggerClassUnseen);
-
-				$('.notification--trigger-count', trigger).text(_.initials.itemsUnseenCount);
 			}
+
+			$('.notification--trigger-count', trigger).text(_.initials.itemsUnseenCount);
 		});
 	};
 
-	Notification.prototype.proxyMethod = function() {
+	Notification.prototype.update = function() {
 		var _ = this;
 
-		console.log('Notification::proxyMethod');
+		// Reset Counter
+		_.initials.itemsUnseenCount = 0;
+
+		// Zeit neu setzen
+		_.initials.lastNotification = 100;
+
+		// Eintraege und Trigger updaten
+		_.items();
+		_.updateTriggers();
 	};
 
 	$.fn.notification = function() { 
