@@ -21,13 +21,13 @@
 
 			// Plugin Defaultoptionen
 			_.defaults = {
-				accessibility: true
+				lastNotification: null
 			};
 
 			// interne globale Variablen
 			_.initials = {
 				element: $(element),
-				lastNotification: 15,
+				lastNotification: null,
 				itemClassSeen: 'notification--listing-item-seen',
 				itemClassUnseen: 'notification--listing-item-unseen',
 				itemsUnseenCount: 0,
@@ -54,12 +54,38 @@
 	Notification.prototype.init = function() {
 		var _ = this;
 
+		// Zeitstempel speichern
+		_.initializeLastNotificationTime();
+
 		// moegliche Trigger identifizieren
 		_.initials.triggers = $('[data-notification-target="' + _.element.data('notification-id') + '"');
 
 		_.items();
 		_.updateTriggers();
 	};
+
+	Notification.prototype.initializeLastNotificationTime = function(datetime) {
+		var _ = this;
+
+		if(_.options.lastNotification !== null) {
+			_.initials.lastNotification = _.options.lastNotification;
+		}
+		
+		// sicher gehen das immer ein Zeitstempel gesetzt ist
+		// gesamte Berechnung erfolgt anhand von Timestamps
+		if(_.initials.lastNotification === null) {
+			var date = new Date();
+			_.initials.lastNotification = Math.round(date.getTime() / 1000);
+		}	
+	}
+
+	Notification.prototype.setLastNotificationTime = function(datetime) {
+		var _ = this;
+
+		if(datetime !== undefined) {
+			_.initials.lastNotification = datetime;
+		}	
+	}
 
 	Notification.prototype.getLastNotificationTime = function() {
 		var _ = this;
@@ -114,7 +140,7 @@
 		_.initials.itemsUnseenCount = 0;
 
 		// Zeit neu setzen
-		_.initials.lastNotification = 100;
+		_.setLastNotificationTime(Math.round(new Date().getTime() / 1000));
 
 		// Eintraege und Trigger updaten
 		_.items();
