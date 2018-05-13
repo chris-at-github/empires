@@ -21,7 +21,9 @@
 
 			// Plugin Defaultoptionen
 			_.defaults = {
-				lastNotification: null
+				lastNotification: null,
+				cookieEnabled: true,
+				cookieName: 'notification'
 			};
 
 			// interne globale Variablen
@@ -40,8 +42,6 @@
 			_.data = $(element).data('notification') || {};
 
 			_.options = $.extend({}, _.defaults, settings, _.data);
-
-			_.proxyMethod = $.proxy(_.proxyMethod, _);
 
 			_.uid = uid++;
 			_.init();
@@ -77,20 +77,22 @@
 			var date = new Date();
 			_.initials.lastNotification = Math.round(date.getTime() / 1000);
 		}	
-	}
+	};
 
 	Notification.prototype.setLastNotificationTime = function(datetime) {
 		var _ = this;
 
 		if(datetime !== undefined) {
 			_.initials.lastNotification = datetime;
-		}	
-	}
+		}
+
+		if(_.options.cookieEnabled === true) {
+			_.setCookie(timestamp);
+		}
+	};
 
 	Notification.prototype.getLastNotificationTime = function() {
-		var _ = this;
-
-		return _.initials.lastNotification;
+		return this.initials.lastNotification;
 	};
 
 	Notification.prototype.items = function() {
@@ -135,16 +137,29 @@
 
 	Notification.prototype.update = function() {
 		var _ = this;
+		var timestamp = Math.round(new Date().getTime() / 1000);
 
 		// Reset Counter
 		_.initials.itemsUnseenCount = 0;
 
 		// Zeit neu setzen
-		_.setLastNotificationTime(Math.round(new Date().getTime() / 1000));
+		_.setLastNotificationTime(timestamp);
 
 		// Eintraege und Trigger updaten
 		_.items();
 		_.updateTriggers();
+	};
+
+	// @see: https://www.w3schools.com/js/js_cookies.asp
+	Notification.prototype.setCookie = function(value) {
+		var _ = this;
+		var date = new Date();
+		var expires;
+
+		date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+		expires = 'expires=' + date.toUTCString();
+
+		document.cookie = _.options.cookieName + '=' + value + ';' + expires + ';path=/';
 	};
 
 	$.fn.notification = function() { 
