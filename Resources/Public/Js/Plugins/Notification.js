@@ -23,7 +23,8 @@
 			_.defaults = {
 				lastNotification: null,
 				cookieEnabled: true,
-				cookieName: 'notification'
+				cookieName: 'notification',
+				onUpdate: null
 			};
 
 			// interne globale Variablen
@@ -156,6 +157,11 @@
 		// Eintraege und Trigger updaten
 		_.items();
 		_.updateTriggers();
+
+		// Callback
+		if(typeof _.options.onUpdate === 'function') {
+			_.options.onUpdate(_, timestamp);
+		}
 	};
 
 	// @see: https://www.w3schools.com/js/js_cookies.asp
@@ -184,7 +190,7 @@
 				part = part.substring(1);
 			}
 
-			if(part.indexOf(name) == 0) {
+			if(part.indexOf(name) === 0) {
 				return part.substring(name.length, part.length);
 			}
 		}
