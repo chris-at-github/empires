@@ -70,20 +70,28 @@
 		if(_.options.lastNotification !== null) {
 			_.initials.lastNotification = _.options.lastNotification;
 		}
-		
+
+		if(_.options.cookieEnabled === true && _.getCookie() !== null) {
+			var cookieLastNotification = parseInt(_.getCookie());
+
+			// Setzen des Cookieeintrags nur wenn er aktueller ist, als der initiale Wert
+			if(_.options.lastNotification === null || cookieLastNotification > _.options.lastNotification) {
+				_.initials.lastNotification = cookieLastNotification;
+			}
+		}
+
 		// sicher gehen das immer ein Zeitstempel gesetzt ist
 		// gesamte Berechnung erfolgt anhand von Timestamps
 		if(_.initials.lastNotification === null) {
-			var date = new Date();
-			_.initials.lastNotification = Math.round(date.getTime() / 1000);
-		}	
+			_.initials.lastNotification = Math.round(new Date().getTime() / 1000);
+		}
 	};
 
-	Notification.prototype.setLastNotificationTime = function(datetime) {
+	Notification.prototype.setLastNotificationTime = function(timestamp) {
 		var _ = this;
 
-		if(datetime !== undefined) {
-			_.initials.lastNotification = datetime;
+		if(timestamp !== undefined) {
+			_.initials.lastNotification = timestamp;
 		}
 
 		if(_.options.cookieEnabled === true) {
@@ -160,6 +168,28 @@
 		expires = 'expires=' + date.toUTCString();
 
 		document.cookie = _.options.cookieName + '=' + value + ';' + expires + ';path=/';
+	};
+
+	// @see: https://www.w3schools.com/js/js_cookies.asp
+	Notification.prototype.getCookie = function() {
+		var _ = this;
+		var name = _.options.cookieName + '=';
+		var decoded = decodeURIComponent(document.cookie);
+		var parts = decoded.split(';');
+
+		for(var i = 0; i < parts.length; i ++) {
+			var part = parts[i];
+
+			while(part.charAt(0) == ' ') {
+				part = part.substring(1);
+			}
+
+			if(part.indexOf(name) == 0) {
+				return part.substring(name.length, part.length);
+			}
+		}
+
+		return null;
 	};
 
 	$.fn.notification = function() { 
