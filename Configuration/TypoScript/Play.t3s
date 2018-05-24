@@ -2,6 +2,7 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/System/TtContent.t3s">
 
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/ContentElement/Example.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/ContentElement/Html.t3s">
 
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/Navigation/Default.t3s">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:play/Configuration/TypoScript/Navigation/Main.t3s">

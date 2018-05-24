@@ -1,19 +1,20 @@
 <?php
 
- // Adds the content element to the "Type" dropdown
- \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
-    array(
-       'Play Example',
-       'play_example',
-			'play-extension'
+// ---------------------------------------------------------------------------------------------------------------------
+// Einfache Erweiterung, um die Moeglichkeiten von FSCE auszuprobieren
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
+	array(
+		'Play Example',
+		'play_example',
+		'play-extension'
 
-    ),
-    'CType',
-    'datamints_play'
- );
+	),
+	'CType',
+	'play_example'
+);
 
-	$GLOBALS['TCA']['tt_content']['types']['play_example'] = [
-		'showitem' => '
+$GLOBALS['TCA']['tt_content']['types']['play_example'] = [
+	'showitem' => '
 				--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.general;general,
 				--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.header;header,bodytext,image,
 			--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.appearance,
@@ -23,21 +24,21 @@
 				--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.access;access,
 			--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.extended
 	 ',
-		'columnsOverrides' => [
-			'image' => [
-				'config' => [
-					'maxitems' => 1,
-				]
-			],
+	'columnsOverrides' => [
+		'image' => [
+			'config' => [
+				'maxitems' => 1,
+			]
+		],
 
-			'bodytext' => [
-				'config' => [
-					'enableRichtext' => 1,
-					'richtextConfiguration' => 'default'
-				]
+		'bodytext' => [
+			'config' => [
+				'enableRichtext' => 1,
+				'richtextConfiguration' => 'default'
 			]
 		]
-	];
+	]
+];
 
 // @see: https://www.clickstorm.de/blog/crop-funktion-fuer-bilder-in-typo3-8-7/
 $GLOBALS['TCA']['tt_content']['types']['play_example']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants'] = [
@@ -62,5 +63,38 @@ $GLOBALS['TCA']['tt_content']['types']['play_example']['columnsOverrides']['imag
 				'value' => 16 / 9
 			]
 		]
+	]
+];
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Auslesen von HTML-Dateien und Ausgabe auf der Webseite
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
+	array(
+		'Play HTML',
+		'play_html',
+		'play-extension'
+
+	),
+	'CType',
+	'play_html'
+);
+
+$GLOBALS['TCA']['tt_content']['types']['play_html'] = [
+	'showitem' => '
+			--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.general;general,
+			--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.header;header,assets,
+		--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.appearance,
+			--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.frames;frames,
+		--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.access,
+			--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.visibility;visibility,
+			--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.access;access,
+		--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.extended
+	',
+	'columnsOverrides' => [
+		'assets' => [
+			'config' => [
+				'maxitems' => 1,
+			]
+		],
 	]
 ];
