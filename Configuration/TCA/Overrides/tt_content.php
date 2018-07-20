@@ -1,6 +1,28 @@
 <?php
 
 // ---------------------------------------------------------------------------------------------------------------------
+// Erweiterungen von TtContent
+$tmpPlayTtContentColumns = array(
+	'tx_play_html' => array(
+		'exclude' => 1,
+		'label' => 'LLL:EXT:play/Resources/Private/Language/locallang_db.xlf:tx_play_ttcontent.html',
+		'config' => array(
+			'type' => 'select',
+			'size' => 1,
+			'renderType' => 'selectSingle',
+			'items' => array(
+				array('', ''),
+			),
+			'maxitems' => 1,
+			'eval' => ''
+		)
+	),
+);
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tmpPlayTtContentColumns);
+//\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('tt_content', 'tx_datamints_biallo_visibility', '', 'after:section_frame');
+
+// ---------------------------------------------------------------------------------------------------------------------
 // Einfache Erweiterung, um die Moeglichkeiten von FSCE auszuprobieren
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
 	array(
@@ -94,6 +116,13 @@ $GLOBALS['TCA']['tt_content']['types']['play_html'] = [
 		'assets' => [
 			'config' => [
 				'maxitems' => 1,
+				'foreign_selector_fieldTcaOverride' => [
+					'config' => [
+						'appearance' => [
+							'elementBrowserAllowed' => 'html'
+						]
+					]
+				]
 			]
 		],
 	]
