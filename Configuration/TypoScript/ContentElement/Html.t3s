@@ -6,8 +6,8 @@ tt_content {
 		dataProcessing {
 			10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
 			10 {
-				as = html
-				references.fieldName = assets
+				as = files
+				references.fieldName = tx_play_file
 			}
 		}
 	}

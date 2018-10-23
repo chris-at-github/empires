@@ -2,5 +2,11 @@
 <f:layout name="Default" />
 <f:section name="Main">
 
+	<f:for each="{files}" as="file">
+		<div class="html--container">
+			{file.originalFile.contents -> f:format.raw()}
+		</div>
+	</f:for>
+
 </f:section>
 </html>
