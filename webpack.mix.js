@@ -42,8 +42,8 @@ mix.autoload({
 // 		]
 // 	});;
 
-mix.js('typo3conf/ext/play/Resources/Public/Js/application.js', 'fileadmin/Resources/Public/Js')
- 	.sass('typo3conf/ext/play/Resources/Public/Sass/application.scss', 'fileadmin/Resources/Public/Css/application.css')
+mix.js('typo3conf/ext/play/Resources/Public/Js/application.js', 'fileadmin/Resources/Public/Js/play.js')
+ 	.sass('typo3conf/ext/play/Resources/Public/Sass/application.scss', 'fileadmin/Resources/Public/Css/play.css')
 	.webpackConfig({
 		plugins: [
 			new spritemap({
