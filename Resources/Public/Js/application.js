@@ -13,3 +13,5 @@
 // $('.notification--update').on('click', function() {
 // 	$('.notification').notification('update');
 // });
+
+require('./Plugins/Draggable');

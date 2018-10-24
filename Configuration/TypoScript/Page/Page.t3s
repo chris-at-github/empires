@@ -1,11 +1,11 @@
 page = PAGE
 page {
 	includeCSS {
-		application = fileadmin/Resources/Public/Css/application.css
+		application = fileadmin/Resources/Public/Css/play.css
 	}
 
 	includeJSFooter {
-		application = fileadmin/Resources/Public/Js/application.js
+		application = fileadmin/Resources/Public/Js/play.js
 	}
 
 	headerData {
