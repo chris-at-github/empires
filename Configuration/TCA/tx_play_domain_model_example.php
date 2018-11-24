@@ -21,10 +21,10 @@ return [
 		'iconfile' => 'EXT:play/Resources/Public/Icons/tx_play_domain_model_example.gif'
 	],
 	'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, email, description, state, type, date, properties',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, email, description, state, type, properties',
 	],
 	'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, email, description, state, type, date, properties, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, email, description, state, type, properties, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
 	],
 	'columns' => [
 		'sys_language_uid' => [
@@ -157,18 +157,18 @@ return [
 				'eval' => ''
 			],
 		],
-		'date' => [
-			'exclude' => true,
-			'label' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_example.date',
-			'config' => [
-				'dbType' => 'datetime',
-				'type' => 'input',
-				'renderType' => 'inputDateTime',
-				'size' => 12,
-				'eval' => 'datetime',
-				'default' => '0000-00-00 00:00:00'
-			],
-		],
+//		'date' => [
+//			'exclude' => true,
+//			'label' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_example.date',
+//			'config' => [
+//				'dbType' => 'datetime',
+//				'type' => 'input',
+//				'renderType' => 'inputDateTime',
+//				'size' => 12,
+//				'eval' => 'datetime',
+//				'default' => '0000-00-00 00:00:00'
+//			],
+//		],
 		'type' => [
 			'exclude' => true,
 			'label' => 'LLL:EXT:play/Resources/Private/Language/locallang_tca.xlf:tx_play_domain_model_example.type',
